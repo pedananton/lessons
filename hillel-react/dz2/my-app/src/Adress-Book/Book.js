@@ -7,7 +7,6 @@ export default class Book extends React.Component {
     state = {
         adresses: [
             { id:1, name: 'name', surname: 'surname', phoneNumber: 'phoneNumber', isDelete: false },
-            { id:2, name: 'name2', surname: 'surname2', phoneNumber: 'phoneNumber2', isDelete: false },
         ],
         
     };
@@ -27,6 +26,19 @@ export default class Book extends React.Component {
         })
     }
 
+    ValidPhone = () => {
+        var re = /^\d[\d\(\)\ -]{4,14}\d$/;
+        var myPhone = document.getElementById('phone').value;
+        var valid = re.test(myPhone);
+        if (valid) {
+            return true;
+        }else {
+            alert('Некорректный номер!');
+        }
+        return valid;
+    }  
+    
+
     toggleAdress = (id) => {
         this.setState({
             adresses: this.state.adresses.map((item) => 
@@ -38,7 +50,7 @@ export default class Book extends React.Component {
         return (
             <>
              <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onToggle={this.toggleAdress}/>
-             <BookForm onSubmit={this.addNewAdress}/>
+             <BookForm onSubmit={this.addNewAdress} ValidPhone={this.ValidPhone}/>
             </>
         );
     }

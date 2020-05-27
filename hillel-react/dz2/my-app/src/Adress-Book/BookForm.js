@@ -34,9 +34,8 @@ export default class BookForm extends Component {
     }
 
     onInputChangePhoneNumber = (e) => {
-        this.setState({
-            adressPhoneNumber: e.target.value,
-        })
+       // this.ValidPhone({adressPhoneNumber: e.target.value})
+        this.setState({adressPhoneNumber: e.target.value})
     }
 
     render() {
