@@ -17,28 +17,47 @@ export default class BookForm extends Component {
         });
 
         this.setState(
-            { adressName: ''},
-           // { adressSurName: ''},
-         //   { adressPhoneNumber: ''},
+            { adressName: '', adressSurName: '', adressPhoneNumber: ''},
             );
     }
 
-    onInputChange = (e) => {
+    onInputChangeName = (e) => {
         this.setState({
             adressName: e.target.value,
         })
     }
 
+    onInputChangeSurName = (e) => {
+        this.setState({
+            adressSurName: e.target.value,
+        })
+    }
+
+    onInputChangePhoneNumber = (e) => {
+        this.setState({
+            adressPhoneNumber: e.target.value,
+        })
+    }
+
     render() {
         return <form onSubmit={this.onFormSubmit}>
-         <input id="1" placeholder="name" type="text" name="adressName" value={this.state.adressName} 
-         onChange={this.onInputChange}/>
-         <input id="2" placeholder="surname" type="text" name="adressSurName" 
-         //value={this.state.adressSurName} 
-         //onChange={this.onInputChange}
+         <input id="1" placeholder="name" type="text" 
+         name="adressName" 
+         value={this.state.adressName} 
+         onChange={this.onInputChangeName}
+         />
+
+         <input id="2" placeholder="surname" type="text" 
+         name="adressSurName" 
+         value={this.state.adressSurName} 
+         onChange={this.onInputChangeSurName}
          />
          
-         <input id="3" placeholder="phone number" type="text"/>
+         <input id="3" placeholder="phone number" type="text"
+         name="adressPhoneNumber"
+         value={this.state.adressPhoneNumber} 
+         onChange={this.onInputChangePhoneNumber}
+         />
          <button>Add</button> 
         </form>
         

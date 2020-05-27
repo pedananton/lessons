@@ -21,7 +21,10 @@ export default class AdressListItem extends Component {
         return (
             <li onClick={this.onElementClick} 
              style={this.getElementStyling(this.props.item)}>
-             {this.props.item.name} {this.props.item.surname} 
+             {this.props.item.name} 
+             &nbsp;&nbsp;
+             {this.props.item.surname} 
+             &nbsp;&nbsp;
              {this.props.item.phoneNumber} 
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <span onClick={this.onDeleteClick}>x</span>
