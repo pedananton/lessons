@@ -1,0 +1,35 @@
+import React, { Component } from 'react'
+
+export default class AdressListItem extends Component {
+    onDeleteClick = (e) => {
+        e.stopPropagation();
+        this.props.onDelete(this.props.item.id);
+    }
+
+    onElementClick = () => {
+        this.props.onToggle(this.props.item.id);
+    }
+
+    getElementStyling(item) {
+        const styling = {...ELEMENT_STYLING};
+
+        return styling;
+    }
+
+    render() {
+        
+        return (
+            <li onClick={this.onElementClick} 
+             style={this.getElementStyling(this.props.item)}>
+             {this.props.item.name} {this.props.item.surname} 
+             {this.props.item.phoneNumber} 
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <span onClick={this.onDeleteClick}>x</span>
+            </li>
+        )
+    }
+}
+
+const ELEMENT_STYLING = {
+    backgroundColor: '#f5f0f0',
+}
