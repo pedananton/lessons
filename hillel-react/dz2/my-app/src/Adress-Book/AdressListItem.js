@@ -36,4 +36,5 @@ export default class AdressListItem extends Component {
 
 const ELEMENT_STYLING = {
     backgroundColor: '#f5f0f0',
+
 }
