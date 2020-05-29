@@ -37,6 +37,7 @@ export default class Book extends React.Component {
     render () {
         return (
             <>
+            <center type="text/css" style={centrStyle}>contact list</center>
              <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onToggle={this.toggleAdress}/>
              <BookForm onSubmit={this.addNewAdress}/>
             </>
@@ -44,3 +45,8 @@ export default class Book extends React.Component {
     }
 };
 
+const centrStyle = {
+    color: 'blue',
+    fontWeight: 'lighter',
+    fontSize: '150%',
+}
