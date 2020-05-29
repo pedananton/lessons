@@ -11,9 +11,10 @@ export default class BookForm extends Component {
         e.preventDefault();
             const inputPhoneNumber = this.state.adressPhoneNumber;
             const inputName = this.state.adressName;
+            const inputSurName = this.state.adressSurName;
         var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
         var valid = re.test(inputPhoneNumber);
-        if (valid&&inputName !== "") {
+        if (valid&&inputName&&inputSurName !== "") {
             this.props.onSubmit({
                 phoneNumber: this.state.adressPhoneNumber,
                 name: this.state.adressName,
