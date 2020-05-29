@@ -69,8 +69,3 @@ export default class BookForm extends Component {
         
     }
 }
-
-const ELEMENT_STYLING = {
-    
-
-}
