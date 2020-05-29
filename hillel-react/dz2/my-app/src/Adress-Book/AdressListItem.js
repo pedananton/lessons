@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 export default class AdressListItem extends Component {
     onDeleteClick = (e) => {
@@ -17,15 +18,15 @@ export default class AdressListItem extends Component {
     }
 
     render() {
-        
+        const {item} = this.props;
         return (
             <li onClick={this.onElementClick} 
-             style={this.getElementStyling(this.props.item)}>
-             {this.props.item.name} 
+             style={this.getElementStyling(item)}>
+             {item.name} 
              &nbsp;&nbsp;
-             {this.props.item.surname} 
+             {item.surname} 
              &nbsp;&nbsp;
-             {this.props.item.phoneNumber} 
+             {item.phoneNumber} 
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <span onClick={this.onDeleteClick}>x</span>
             </li>

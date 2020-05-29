@@ -2,7 +2,6 @@ import React from 'react';
 import AdressList from './AdressList';
 import BookForm from './BookForm';
 
-
 export default class Book extends React.Component {
     state = {
         adresses: [
@@ -26,19 +25,6 @@ export default class Book extends React.Component {
         })
     }
 
-    ValidPhone = () => {
-        var re = /^\d[\d\(\)\ -]{4,14}\d$/;
-        var myPhone = document.getElementById('phone').value;
-        var valid = re.test(myPhone);
-        if (valid) {
-            return true;
-        }else {
-            alert('Некорректный номер!');
-        }
-        return valid;
-    }  
-    
-
     toggleAdress = (id) => {
         this.setState({
             adresses: this.state.adresses.map((item) => 
@@ -46,11 +32,13 @@ export default class Book extends React.Component {
             ),
         });
     };
+
+
     render () {
         return (
             <>
              <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onToggle={this.toggleAdress}/>
-             <BookForm onSubmit={this.addNewAdress} ValidPhone={this.ValidPhone}/>
+             <BookForm onSubmit={this.addNewAdress}/>
             </>
         );
     }

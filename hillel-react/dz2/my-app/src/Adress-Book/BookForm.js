@@ -8,17 +8,23 @@ export default class BookForm extends Component {
     }
     onFormSubmit = (e) => {
         e.preventDefault();
-
-        this.props.onSubmit({
-            name: this.state.adressName,
-            surname: this.state.adressSurName,
-            phoneNumber: this.state.adressPhoneNumber,
-
-        });
+            const inputPhoneNumber = this.state.adressPhoneNumber;
+            const inputName = this.state.adressName;
+        var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+        var valid = re.test(inputPhoneNumber);
+        if (valid&&inputName !== "") {
+            this.props.onSubmit({
+                phoneNumber: this.state.adressPhoneNumber,
+                name: this.state.adressName,
+                surname: this.state.adressSurName,
+            });
+        }else{
+            (alert('Некорректный номер или имя!'))}
 
         this.setState(
             { adressName: '', adressSurName: '', adressPhoneNumber: ''},
             );
+            
     }
 
     onInputChangeName = (e) => {
@@ -34,7 +40,6 @@ export default class BookForm extends Component {
     }
 
     onInputChangePhoneNumber = (e) => {
-       // this.ValidPhone({adressPhoneNumber: e.target.value})
         this.setState({adressPhoneNumber: e.target.value})
     }
 
