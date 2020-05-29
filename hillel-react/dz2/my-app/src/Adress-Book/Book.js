@@ -4,10 +4,7 @@ import BookForm from './BookForm';
 
 export default class Book extends React.Component {
     state = {
-        adresses: [
-            { id:1, name: 'name', surname: 'surname', phoneNumber: 'phoneNumber', isDelete: false },
-        ],
-        
+        adresses: [],
     };
 
     addNewAdress = (newAdress) => {

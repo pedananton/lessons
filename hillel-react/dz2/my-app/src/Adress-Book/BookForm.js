@@ -64,8 +64,14 @@ export default class BookForm extends Component {
          value={this.state.adressPhoneNumber} 
          onChange={this.onInputChangePhoneNumber}
          />
-         <button>Add</button> 
+         <button style={buttonStyle}>add new contact</button> 
         </form>
         
     }
+}
+
+const buttonStyle = {
+    left: "0",
+    bottom: "0",
+    color: "red",
 }
