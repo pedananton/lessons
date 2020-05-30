@@ -9,7 +9,6 @@ export default class AdressList extends Component {
            {this.props.adresses.map((item) => (
                <AdressListItem key={item.id} item={item} 
                onDelete={this.props.onDelete} 
-               onToggle={this.props.onToggle}
                />
                ))}
            </ul>

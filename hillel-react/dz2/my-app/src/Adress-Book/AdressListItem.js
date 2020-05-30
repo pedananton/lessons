@@ -7,10 +7,6 @@ export default class AdressListItem extends Component {
         this.props.onDelete(this.props.item.id);
     }
 
-    onElementClick = () => {
-        this.props.onToggle(this.props.item.id);
-    }
-
     getElementStyling(item) {
         const styling = {...ELEMENT_STYLING};
 

@@ -9,6 +9,7 @@ export default class BookForm extends Component {
     }
     onFormSubmit = (e) => {
         e.preventDefault();
+        
             const inputPhoneNumber = this.state.adressPhoneNumber;
             const inputName = this.state.adressName;
             const inputSurName = this.state.adressSurName;
@@ -44,9 +45,12 @@ export default class BookForm extends Component {
     onInputChangePhoneNumber = (e) => {
         this.setState({adressPhoneNumber: e.target.value})
     }
-
+    
     render() {
-        return <form onSubmit={this.onFormSubmit}>
+        return <form
+        onSubmit={this.onFormSubmit}
+        onClick={this.ontoggleHiden}
+        >
          <input id="1" placeholder="name" type="text" 
          name="adressName" 
          value={this.state.adressName} 
@@ -64,8 +68,9 @@ export default class BookForm extends Component {
          value={this.state.adressPhoneNumber} 
          onChange={this.onInputChangePhoneNumber}
          />
-         <button style={buttonStyle}>add new contact</button> 
-        </form>
+         <button style={buttonStyle}>add new contact</button>
+         <button style={resetButtonStyle} onClick={this.ontoggleHiden}>hide form</button>
+        </form> 
         
     }
 }
@@ -73,5 +78,10 @@ export default class BookForm extends Component {
 const buttonStyle = {
     left: "0",
     bottom: "0",
-    color: "red",
+    background: "#6dbd83",
+}
+const resetButtonStyle = {
+    left: "0",
+    bottom: "0",
+    background: "#de0453",
 }

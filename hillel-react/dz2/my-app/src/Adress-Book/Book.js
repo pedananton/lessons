@@ -30,13 +30,19 @@ export default class Book extends React.Component {
         });
     };
 
+   /*
+должно прятать форму
+   */
+    toggleHiden = (elem) => {
+        this.setState({elem: elem.style={visibility: 'hidden'}})
+    }
 
     render () {
         return (
             <>
             <center type="text/css" style={centrStyle}>contact list</center>
              <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onToggle={this.toggleAdress}/>
-             <BookForm onSubmit={this.addNewAdress}/>
+             <BookForm onSubmit={this.addNewAdress} ontoggleHiden={this.toggleHiden}/>
             </>
         );
     }
