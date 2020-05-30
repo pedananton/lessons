@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 export default class BookForm extends Component {
 
     onHideClick = () => {
-        debugger
         this.setState({
             isHide: true,
         })
