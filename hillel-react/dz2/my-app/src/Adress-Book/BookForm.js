@@ -2,14 +2,30 @@ import React, { Component } from 'react'
 
 
 export default class BookForm extends Component {
+
+    onHideClick = () => {
+        debugger
+        this.setState({
+            isHide: true,
+        })
+    };
+
+    getElementStyling({ isHide }) {
+        const styling = { ...ELEMENT_STYLING };
+        if (isHide) {
+            styling.visibility = 'hidden';
+        }
+        return styling;
+    }
+
     state = {
         adressName: '',
         adressSurName: '',
         adressPhoneNumber: '',
+        isHide: '',
     }
     onFormSubmit = (e) => {
         e.preventDefault();
-        
             const inputPhoneNumber = this.state.adressPhoneNumber;
             const inputName = this.state.adressName;
             const inputSurName = this.state.adressSurName;
@@ -45,11 +61,11 @@ export default class BookForm extends Component {
     onInputChangePhoneNumber = (e) => {
         this.setState({adressPhoneNumber: e.target.value})
     }
-    
+
     render() {
-        return <form
+        return <form 
         onSubmit={this.onFormSubmit}
-        onClick={this.ontoggleHiden}
+
         >
          <input id="1" placeholder="name" type="text" 
          name="adressName" 
@@ -69,7 +85,7 @@ export default class BookForm extends Component {
          onChange={this.onInputChangePhoneNumber}
          />
          <button style={buttonStyle}>add new contact</button>
-         <button style={resetButtonStyle} onClick={this.ontoggleHiden}>hide form</button>
+         <button style={resetButtonStyle} onClick={this.onHideClick}>hide form</button>
         </form> 
         
     }
@@ -85,3 +101,7 @@ const resetButtonStyle = {
     bottom: "0",
     background: "#de0453",
 }
+
+const ELEMENT_STYLING = {
+    visibility: 'visible',
+};

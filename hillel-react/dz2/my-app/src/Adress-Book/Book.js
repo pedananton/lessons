@@ -22,27 +22,13 @@ export default class Book extends React.Component {
         })
     }
 
-    toggleAdress = (id) => {
-        this.setState({
-            adresses: this.state.adresses.map((item) => 
-             item.id !== id ? item : {...item, isDelete: !item.isDelete}
-            ),
-        });
-    };
-
-   /*
-должно прятать форму
-   */
-    toggleHiden = (elem) => {
-        this.setState({elem: elem.style={visibility: 'hidden'}})
-    }
 
     render () {
         return (
             <>
             <center type="text/css" style={centrStyle}>contact list</center>
-             <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onToggle={this.toggleAdress}/>
-             <BookForm onSubmit={this.addNewAdress} ontoggleHiden={this.toggleHiden}/>
+             <AdressList adresses={this.state.adresses} onDelete={this.deleteAdress} onHide={this.hideForm}/>
+             <BookForm onSubmit={this.addNewAdress}/>
             </>
         );
     }
