@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 export default class ContactsListItem extends Component {
-
-    onElementClick = (e) => {
-        this.props.onToggle(this.props.contact.id)
+    onElementClick = () => {
+        
+        this.props.onToggle(this.props.contact.id)   
     }
+
     render() {
         const { contact } = this.props;
         return (

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class ContactsListForm extends Component {
     constructor () {
         super();
-//debugger
     this.state = {
         
         values: {
@@ -22,10 +21,6 @@ export default class ContactsListForm extends Component {
     this.onSaveClick = this.onSaveClick.bind(this);
    
     }
-
-    
-
-    
 
     validateInput(name, value) {
         const isValid = {

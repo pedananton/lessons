@@ -47,8 +47,8 @@ export default class ContactsList extends Component {
     }; 
 
     onDelete = (contactId) => {
-        
         this.setState({
+            
             contacts: this.state.contacts.filter(({ id }) => id !== contactId),
         });
     };
@@ -78,9 +78,11 @@ export default class ContactsList extends Component {
     };
 
     onToggle = (id) => {
-        debugger
+        //debugger
         console.log("toggle", id)
         this.showForm(id);
+        this.state.isToggle = true;
+        
     }
 
     render() {
@@ -102,6 +104,7 @@ export default class ContactsList extends Component {
                     onDelete={this.onDelete}
                     onToggle={this.onToggle}
                     onClick={this.onFormSave}
+                
                  ></ContactsListItem>
               ))}
               
