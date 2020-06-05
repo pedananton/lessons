@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import './content.txt'
 
+// const styleComponent = styled.div`
+//   text-align: center;
+// `;
+
 class Magic extends React.Component {
   constructor(props) {
     super(props);
