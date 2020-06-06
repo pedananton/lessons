@@ -56,7 +56,6 @@ export default class ContactsListForm extends Component {
 
     onInputChange = (e) => {
         const { name, value } = e.target;
-debugger
         this.setState({
             
             values: {
@@ -68,17 +67,15 @@ debugger
         this.validateInput(name, value);
     };
 
-    onToggle = (e) => (
-        this.setState({
-            values: {
-                ...this.state.values,
-                
-            }
-        })
-    );
+    toggledForm = () => {
+        debugger
+        console.log("toggledForm")
+       
+        
+   } ;
     
     render() {
-        
+     
      const { values, isValid } = this.state;
         return (
             <tr id="contactForm">
@@ -90,7 +87,6 @@ debugger
                name="name"
                value={values.name}
                onChange={this.onInputChange}
-               onToggle={this.onToggle}
               />
              </td>
              <td>
