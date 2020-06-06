@@ -86,7 +86,6 @@ export default class ContactsList extends Component {
     }
 
     render() {
-        
         return (
             <>
              <table className="split left">
@@ -121,7 +120,6 @@ export default class ContactsList extends Component {
                {this.state.isFormVisible ? (
                 <ContactsListForm
                  onSave={this.hideForm , this.onFormSave}
-                 toggledForm={this.onToggle, this.showForm}
                 ></ContactsListForm>
                ) : (
                 <tr>

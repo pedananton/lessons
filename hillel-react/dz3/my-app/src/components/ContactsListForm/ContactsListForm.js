@@ -66,13 +66,6 @@ export default class ContactsListForm extends Component {
 
         this.validateInput(name, value);
     };
-
-    toggledForm = () => {
-        debugger
-        console.log("toggledForm")
-       
-        
-   } ;
     
     render() {
      
