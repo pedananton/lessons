@@ -19,6 +19,7 @@ export default class ContactsListForm extends Component {
     };
 
     this.onSaveClick = this.onSaveClick.bind(this);
+    this.onToggle = this.onToggle.bind(this);
    
     }
 
@@ -66,7 +67,19 @@ export default class ContactsListForm extends Component {
 
         this.validateInput(name, value);
     };
+
+    onToggle = () => {
+        console.log("onToggle-form")
+        //debugger
+        this.props.onToggle({[name]: value});
+    }
     
+    componentDidMount(id) {
+        
+        console.log("toggle-form-componentDidUpdate")
+        this.onToggle(id);
+        
+      }
     render() {
      
      const { values, isValid } = this.state;
