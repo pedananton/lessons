@@ -84,7 +84,11 @@ export default class ContactsList extends Component {
 
     onToggle = (id) => {
         //debugger
-        console.log("toggle", id)
+
+        this.setState({
+            
+        })
+        console.log("toggle-List", id)
         this.showForm();
         
     }
