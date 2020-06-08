@@ -68,11 +68,13 @@ export default class ContactsListForm extends Component {
     };
     
    
-    componentDidMount = (e) => {
-        this.props.onToggle({...this.state.values});
-    
-        console.log("toggle-form-componentDidUpdate")
-        //debugger
+    componentDidUpdate = (prevProps) => {
+        if (this.props.id !== prevProps.id) {
+            this.setState({
+                values: this.props.id,
+            })
+            console.log(...this.state.values);
+          }
       }
     render() {
      
