@@ -82,9 +82,9 @@ export default class ContactsList extends Component {
         this.hideForm();
     };
 
-    onToggle = (id ) => {
+    onToggle = (contact ) => {
         
-        console.log("toggle-List", id ,this.state.contacts)
+        console.log("toggle-List", contact)
         this.showForm();
         
     }

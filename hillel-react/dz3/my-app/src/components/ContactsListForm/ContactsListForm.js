@@ -9,6 +9,7 @@ export default class ContactsListForm extends Component {
             name: 'contact.name',
             surname: 'Smith',
             phone: '000',
+            id: '',
         },
         isValid: {
             name: true,
@@ -19,6 +20,7 @@ export default class ContactsListForm extends Component {
     };
 
     this.onSaveClick = this.onSaveClick.bind(this);
+
    
     }
 
@@ -68,12 +70,15 @@ export default class ContactsListForm extends Component {
     };
     
    
-    componentDidUpdate = (prevProps) => {
-        if (this.props.id !== prevProps.id) {
-            this.setState({
-                values: this.props.id,
-            })
-            console.log(...this.state.values);
+    componentDidMount = (contact) => {
+        debugger
+        const prevValue = this.state.values;
+        const values = this.props.onToggle(contact);
+        if (prevValue !== values) {
+        //     this.setState({
+        //         values: this.props.value,
+        //     })
+            console.log("componentDidUpdate", prevValue, values)
           }
       }
     render() {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class ContactsListItem extends Component {
     onElementClick = () => {
         
-        this.props.onToggle(this.props.contact.id)   
+        this.props.onToggle(this.props.contact)   
     }
 
     render() {
