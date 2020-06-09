@@ -20,7 +20,6 @@ export default class ContactsListForm extends Component {
     };
 
     this.onSaveClick = this.onSaveClick.bind(this);
-
    
     }
 
@@ -69,18 +68,22 @@ export default class ContactsListForm extends Component {
         this.validateInput(name, value);
     };
     
-   
-    componentDidMount = (contact) => {
-        debugger
-        const prevValue = this.state.values;
-        const values = this.props.onToggle(contact);
-        if (prevValue !== values) {
-        //     this.setState({
-        //         values: this.props.value,
-        //     })
-            console.log("componentDidUpdate", prevValue, values)
-          }
-      }
+   /**
+    * не пойму как предотвратить бесконечный цикл , вроде условие выставил ;
+    * и не пойму как изменить стейт формы на данные стогленого контакта из list;
+    */
+    componentDidUpdate = () => {
+        const prevValues = this.state.values;
+        const values = this.props.onToggle({...this.state.values});
+        if(prevValues !== values) {
+            this.setState({
+                values: {
+                    ...this.state.values,
+                }
+            })
+            //console.log("componentDidUpdate")
+        }
+    }
     render() {
      
      const { values, isValid } = this.state;
