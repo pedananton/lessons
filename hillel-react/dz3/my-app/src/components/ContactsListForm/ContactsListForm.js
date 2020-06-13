@@ -75,7 +75,7 @@ export default class ContactsListForm extends Component {
     componentDidUpdate = () => {
         this.props.onToggle = (contact) => {
             this.setState({
-                values: {contact},
+                values: contact,
             })
         }
         
