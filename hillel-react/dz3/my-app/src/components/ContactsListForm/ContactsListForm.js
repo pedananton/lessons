@@ -20,7 +20,7 @@ export default class ContactsListForm extends Component {
     };
 
     this.onSaveClick = this.onSaveClick.bind(this);
-   
+    
     }
 
     validateInput(name, value) {
@@ -73,17 +73,15 @@ export default class ContactsListForm extends Component {
     * и не пойму как изменить стейт формы на данные стогленого контакта из list;
     */
     componentDidUpdate = () => {
-        const prevValues = this.state.values;
-        const values = this.props.onToggle({...this.state.values});
-        if(prevValues !== values) {
+        this.props.onToggle = (contact) => {
             this.setState({
-                values: {
-                    ...this.state.values,
-                }
+                values: {contact},
             })
+        }
+        
             //console.log("componentDidUpdate")
         }
-    }
+    
     render() {
      
      const { values, isValid } = this.state;
