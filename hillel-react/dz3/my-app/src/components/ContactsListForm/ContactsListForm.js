@@ -69,7 +69,7 @@ export default class ContactsListForm extends Component {
     };
     
    /**
-    * не пойму как предотвратить бесконечный цикл , вроде условие выставил ;
+    
     * и не пойму как изменить стейт формы на данные стогленого контакта из list;
     */
     componentDidUpdate = () => {
