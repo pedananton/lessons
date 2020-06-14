@@ -6,7 +6,7 @@ export default class ContactsListForm extends Component {
     this.state = {
         
         values: {
-            name: 'contact.name',
+            name: 'Pol',
             surname: 'Smith',
             phone: '000',
             id: '',
@@ -68,19 +68,14 @@ export default class ContactsListForm extends Component {
         this.validateInput(name, value);
     };
     
-   /**
-    
-    * и не пойму как изменить стейт формы на данные стогленого контакта из list;
-    */
-    componentDidUpdate = () => {
-        this.props.onToggle = (contact) => {
-            this.setState({
-                values: contact,
-            })
-        }
-        
-            //console.log("componentDidUpdate")
-        }
+   static getDerivedStateFromProps(props, state) {
+        state.name = props.initialName;
+        console.log(state.values.name)
+        console.log(props.initialName)
+        return state;
+                 
+    }
+
     
     render() {
      
@@ -95,6 +90,7 @@ export default class ContactsListForm extends Component {
                name="name"
                value={values.name}
                onChange={this.onInputChange}
+               onToggle={this.onToggle}
               />
              </td>
              <td>

@@ -46,10 +46,6 @@ export default class ContactsList extends Component {
 
     }; 
 
-    onDelete = (e) => {
-        e.preventDefault();
-    }
-
     onDelete = (contactId) => {
         this.setState({
             
@@ -82,11 +78,10 @@ export default class ContactsList extends Component {
         this.hideForm();
     };
 
-    onToggle = (contact ) => {
-        
+    onToggle = (contact) => {
+        //debugger
         console.log("toggle-List", contact)
         this.showForm();
-        
     }
 
     render() {
@@ -125,6 +120,7 @@ export default class ContactsList extends Component {
                 <ContactsListForm
                  onSave={this.hideForm , this.onFormSave}
                  onToggle={this.onToggle}
+                 initialName= {this.onToggle}
                 ></ContactsListForm>
                ) : (
                 <tr>
