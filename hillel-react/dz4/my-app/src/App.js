@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import NoteDesk from './components/NoteDesk';
+import NoteDesk from './components/note-desk/NoteDesk';
+
 
 
 function App() {
   return (
     <>
      <header>Note Desk App</header>
-     <NoteDesk />
+     <div><NoteDesk /></div>
+     
     </> 
   );
 }
