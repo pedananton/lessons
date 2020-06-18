@@ -8,7 +8,7 @@ function App() {
   return (
     <>
      <header>Note Desk App</header>
-     <div><NoteDesk /></div>
+     <div className='wrapper'><NoteDesk /></div>
      
     </> 
   );

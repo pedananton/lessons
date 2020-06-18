@@ -17,7 +17,7 @@ function NoteDesk() {
 
     return (
         
-         <ul>
+         <ul className='list'>
           {noteDeskItems.map(item => (
             <NoteDeskItem key={item.id} item={item} onToggle={toggleItem} />
             ))}

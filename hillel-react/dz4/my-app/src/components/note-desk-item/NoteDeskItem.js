@@ -1,7 +1,7 @@
 import React from 'react'
 
 function NoteDeskItem({item, onToggle}) {
-    return <li
+    return <li className='list_cell' draggable='true'
      onClick={onToggle.bind(null, item)} 
      style={getStyles(item)} >{item.description}
      </li>;
