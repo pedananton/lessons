@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function NoteDeskItem({item, onToggle}) {
+function NoteDeskItem({item, onToggle, dragAndDrop}) {
+    const [itemState, setitemState] = useState([])
+
     return <li className='list_cell' draggable='true'
      onClick={
-        dragAndDrop(item),
-        onToggle.bind(null, item)
+        onToggle.bind(null, item),
+        dragAndDrop.bind(null, item)
         }
      style={getStyles(item)} >{item.description}
      </li>;
@@ -18,14 +20,3 @@ function getStyles(item) {
     }
 }
 
-const dragAndDrop = (item) => {
-    console.log('dragAndDrop', item)
-    const dragStart = function () {
-        console.log('dragStart', item)
-          setTimeout(() => {
-            //debugger
-           // this.setState({})
-        }, 500)
-    }
-    dragStart();
-}

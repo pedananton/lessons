@@ -15,11 +15,21 @@ function NoteDesk() {
         setNoteDeskItems(noteDeskItems.map(item => item.id === data.id ? data : item)));
     }
 
+    const dragAndDropItem = (item) => {
+        console.log('dragAndDropItem', item)
+        const dragStart = function() {
+            //item.className.add('hide')
+            //console.log('dragStart', this) 
+        }
+    }
+    dragAndDropItem();
+    
+
     return (
         
          <ul className='list'>
           {noteDeskItems.map(item => (
-            <NoteDeskItem key={item.id} item={item} onToggle={toggleItem} />
+            <NoteDeskItem key={item.id} item={item} onToggle={toggleItem} dragAndDrop={dragAndDropItem}/>
             ))}
          </ul>
         
