@@ -1,12 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 function NoteDeskItem({item, onToggle, dragAndDrop}) {
-    const [itemState, setitemState] = useState([])
-
     return <li className='list_cell' draggable='true'
      onClick={
-        onToggle.bind(null, item),
-        dragAndDrop.bind(null, item)
+        onToggle.bind(null, item)
         }
      style={getStyles(item)} >{item.description}
      </li>;

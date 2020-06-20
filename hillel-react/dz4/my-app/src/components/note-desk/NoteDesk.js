@@ -4,6 +4,7 @@ import api from '../../api';
 
 
 function NoteDesk() {
+    
     const [noteDeskItems, setNoteDeskItems] = useState([]);
     
     useEffect(() => {
@@ -16,14 +17,13 @@ function NoteDesk() {
     }
 
     const dragAndDropItem = (item) => {
-        console.log('dragAndDropItem', item)
+        console.log('dragAndDrop', item)
         const dragStart = function() {
-            //item.className.add('hide')
-            //console.log('dragStart', this) 
+            console.log('dragStart', item)
+             
         }
+        dragStart();
     }
-    dragAndDropItem();
-    
 
     return (
         
