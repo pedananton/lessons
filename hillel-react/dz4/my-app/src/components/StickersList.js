@@ -1,5 +1,5 @@
 import React from 'react';
-import Sticker from './Sticker';
+import Sticker from './StickerItem';
 
 function StickersList({ stickers, onDelete, onChange, onSave }) {
     return (

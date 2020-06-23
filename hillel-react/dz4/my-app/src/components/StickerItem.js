@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Sticker({ sticker, onChange, onDelete, onSave }) {
+function StickerItem({ sticker, onChange, onDelete, onSave }) {
     let prevPosition = { x: 0, y: 0 };
 
     function onValueChange(e) {
@@ -106,4 +106,4 @@ const desciptionInputStyle = {
     height: '150px',
 };
 
-export default Sticker;
+export default StickerItem;
