@@ -4,19 +4,14 @@ import {addNewListItem} from '../store/actions'
 
 
 
-function ToDoListItem({inputValue}) {
+function ToDoListItem({itemValue}) {
     
     return (
-        <>
-            <div>
-                <li>{inputValue}</li>
-            </div>
-        </>
-        
+        <li>{itemValue}</li>
     )
 }
 
-const mapStateToProps = ({ inputValue }) => ({ inputValue });
+const mapStateToProps = ({ itemValue }) => ({ itemValue });
 
 const mapDispatchToprops = {
     addNewListItem,

@@ -2,22 +2,26 @@ import React from 'react'
 import {connect} from 'react-redux' 
 import { addNewListItem } from '../store/actions';
 
-function ToDoInput({ newInputValue, addInputValue }) {
-    //debugger
+function ToDoInput({ inputValue }) {
+    function onChange(e) {
+        
+        inputValue = e.target.value;
+    }
     return (
         <div >
             <input 
                 placeholder={'input something todo'}
                 type="text"
-                value={newInputValue}
+                onChange={onChange}
             ></input>
-            <button onClick={() => addNewListItem({newInputValue})}>Add</button>
+            <button onClick={
+                
+                () => addNewListItem({inputValue})}>Add</button>
         </div>
     )
 }
 
-const mapStateToProps = ({ value }) => ({ value });
-
+const mapStateToProps = ({ inputValue }) => ({ inputValue });
 
 const mapDispatchToprops = {
     addNewListItem,

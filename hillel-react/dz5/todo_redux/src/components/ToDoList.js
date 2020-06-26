@@ -3,15 +3,19 @@ import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
 
-function ToDoList() {
-    
+function ToDoList({listItemValue}) {
+    const todos = [];
+    //debugger
+    /**
+     * нужно отрендерить новую todo в list
+     */
     return (
         <>
             <div>
                 <ul>
-                    <ToDoListItem
-                        
-                    ></ToDoListItem>
+                    {todos.map((listItemValue) => (
+                        <ToDoListItem listItemValue={listItemValue}/>
+                    ))}
                 </ul>
             </div>
             <ToDoInput></ToDoInput>
