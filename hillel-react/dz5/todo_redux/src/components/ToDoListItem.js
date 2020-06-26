@@ -1,25 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addListItemValue} from '../store/actions'
+import {addNewListItem} from '../store/actions'
 
 
 
-function ToDoListItem({listItemValue, addListItemValue}) {
+function ToDoListItem({inputValue}) {
     
     return (
         <>
             <div>
-                <li>{listItemValue}</li>
+                <li>{inputValue}</li>
             </div>
         </>
         
     )
 }
 
-const mapStateToProps = ({ listItemValue }) => ({ listItemValue });
+const mapStateToProps = ({ inputValue }) => ({ inputValue });
 
 const mapDispatchToprops = {
-    addListItemValue,
+    addNewListItem,
 };
 
 export default connect(mapStateToProps, mapDispatchToprops) (ToDoListItem)

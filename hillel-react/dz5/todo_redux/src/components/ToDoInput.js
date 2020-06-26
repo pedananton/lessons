@@ -1,24 +1,26 @@
 import React from 'react'
 import {connect} from 'react-redux' 
-import { addInputValue } from '../store/actions';
+import { addNewListItem } from '../store/actions';
 
-function ToDoInput({ inputValue, addInputValue }) {
+function ToDoInput({ newInputValue, addInputValue }) {
+    //debugger
     return (
         <div >
             <input 
                 placeholder={'input something todo'}
                 type="text"
-                value={inputValue}
+                value={newInputValue}
             ></input>
-            <button onClick={() => addInputValue({inputValue })}>Add</button>
+            <button onClick={() => addNewListItem({newInputValue})}>Add</button>
         </div>
     )
 }
 
-const mapStateToProps = ({ inputValue }) => ({ inputValue });
+const mapStateToProps = ({ value }) => ({ value });
+
 
 const mapDispatchToprops = {
-    addInputValue,
+    addNewListItem,
 };
 
 export default connect(mapStateToProps, mapDispatchToprops)(ToDoInput);
