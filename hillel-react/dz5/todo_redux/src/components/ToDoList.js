@@ -2,19 +2,23 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
+import {addNewListItem} from '../store/actions'
 
-function ToDoList({listItemValue}) {
+function ToDoList({ itemValue }) {
+    const item = {itemValue};
+    item.id = Date.now();
+    
     const todos = [];
-    //debugger
+    debugger
     /**
-     * нужно отрендерить новую todo в list
+     * не рендерится item в list :(
      */
     return (
         <>
             <div>
                 <ul>
-                    {todos.map((listItemValue) => (
-                        <ToDoListItem listItemValue={listItemValue}/>
+                    {todos.map((item) => (
+                        <ToDoListItem item={item}/>
                     ))}
                 </ul>
             </div>
@@ -23,4 +27,11 @@ function ToDoList({listItemValue}) {
     )
 }
 
-export default connect() (ToDoList)
+const mapStateToProps = ({ itemValue }) => ({ itemValue });
+
+const mapDispatchToprops = {
+    addNewListItem,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToprops) (ToDoList)

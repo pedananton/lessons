@@ -7,6 +7,7 @@ function ToDoInput({ inputValue }) {
         
         inputValue = e.target.value;
     }
+    
     return (
         <div >
             <input 
@@ -15,10 +16,11 @@ function ToDoInput({ inputValue }) {
                 onChange={onChange}
             ></input>
             <button onClick={
+                () => addNewListItem( {inputValue} )}>Add</button>
                 
-                () => addNewListItem({inputValue})}>Add</button>
         </div>
     )
+    
 }
 
 const mapStateToProps = ({ inputValue }) => ({ inputValue });

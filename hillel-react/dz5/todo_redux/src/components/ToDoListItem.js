@@ -4,10 +4,11 @@ import {addNewListItem} from '../store/actions'
 
 
 
-function ToDoListItem({itemValue}) {
+function ToDoListItem() {
     
+    //debugger
     return (
-        <li>{itemValue}</li>
+        <li></li>
     )
 }
 
