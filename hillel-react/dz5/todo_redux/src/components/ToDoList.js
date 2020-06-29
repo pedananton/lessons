@@ -4,21 +4,24 @@ import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
 import {addNewListItem} from '../store/actions'
 
-function ToDoList({ itemValue }) {
-    const item = {itemValue};
-    item.id = Date.now();
+function ToDoList({ todos }) {
+    function toggleItem(item) {
+        debugger
+        return ((item.id, {isDone: !item.isDone })
+/**
+ * сделать изменение isDone 
+ */
+        ,console.log ('toggle',item )
+        )
+    };
     
-    const todos = [];
-    debugger
-    /**
-     * не рендерится item в list :(
-     */
+    //debugger
     return (
         <>
             <div>
                 <ul>
                     {todos.map((item) => (
-                        <ToDoListItem item={item}/>
+                        <ToDoListItem key={item.id} item={item} onToggle={toggleItem}/>
                     ))}
                 </ul>
             </div>
@@ -27,11 +30,16 @@ function ToDoList({ itemValue }) {
     )
 }
 
-const mapStateToProps = ({ itemValue }) => ({ itemValue });
+function mapStateToProps(state) {
+    //debugger
+    return {
+        todos: state.todos,
+        //log: console.log('mapStateToProps-state', state), 
+    }
+};
 
 const mapDispatchToprops = {
     addNewListItem,
 };
-
 
 export default connect(mapStateToProps, mapDispatchToprops) (ToDoList)

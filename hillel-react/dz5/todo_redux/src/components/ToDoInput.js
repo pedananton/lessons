@@ -16,7 +16,7 @@ function ToDoInput({ inputValue }) {
                 onChange={onChange}
             ></input>
             <button onClick={
-                () => addNewListItem( {inputValue} )}>Add</button>
+                () => addNewListItem( {inputValue})}>Add</button>
                 
         </div>
     )
