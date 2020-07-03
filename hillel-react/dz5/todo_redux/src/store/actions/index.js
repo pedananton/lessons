@@ -1,13 +1,10 @@
 
-export const ADD_NEW_LIST_ITEM_ACTION = 'ACTION/ADD';
+export const TOGGLE_ITEM = 'ACTION/TOGGLE';
 
-export function addNewListItem(value) {
-    //debugger
+export function toggleItem(value) {
     return {
-        
-        type: ADD_NEW_LIST_ITEM_ACTION,
+        type: TOGGLE_ITEM,
         payload: value,
-    };
+    }
 }
-
 

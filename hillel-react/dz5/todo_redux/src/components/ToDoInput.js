@@ -1,32 +1,21 @@
 import React from 'react'
-import {connect} from 'react-redux' 
-import { addNewListItem } from '../store/actions';
 
-function ToDoInput({ inputValue }) {
-    function onChange(e) {
-        
-        inputValue = e.target.value;
+function ToDoInput({ title, onTitleChange, onSave }) {
+    function onSubmit(e) {
+        e.preventDefault();
+        onSave();
     }
     
     return (
-        <div >
+        <form action="" onSubmit={onSubmit} >
             <input 
                 placeholder={'input something todo'}
                 type="text"
-                onChange={onChange}
+                value={title}
+                onChange={onTitleChange}
             ></input>
-            <button onClick={
-                () => addNewListItem( {inputValue})}>Add</button>
-                
-        </div>
+        </form>
     )
-    
 }
 
-const mapStateToProps = ({ inputValue }) => ({ inputValue });
-
-const mapDispatchToprops = {
-    addNewListItem,
-};
-
-export default connect(mapStateToProps, mapDispatchToprops)(ToDoInput);
+export default ToDoInput;

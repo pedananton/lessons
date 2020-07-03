@@ -1,24 +1,20 @@
+import {TOGGLE_ITEM} from "../actions"
 
-import {ADD_NEW_LIST_ITEM_ACTION} from "../actions"
-//debugger
 const initialState = {
     todos: [
         {
-            itemValue: 'learning english',
+            title: 'learning english',
             isDone: false,
             id: 1,
         },
     ],
 };
-//debugger
 
-export default function (state = initialState, {type, payload} ) {
+export default function (state = initialState, {type, payload=state.todos} ) {
     switch (type) {
-        case ADD_NEW_LIST_ITEM_ACTION:
-            return {
-                ...state, 
-                itemValue: state.itemValue + payload,
-            };
+        case TOGGLE_ITEM:
+            debugger 
+            return
         default: 
             return state;
     }

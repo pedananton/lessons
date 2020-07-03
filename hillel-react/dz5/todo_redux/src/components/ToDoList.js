@@ -2,44 +2,48 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
-import {addNewListItem} from '../store/actions'
+import { toggleItem } from '../store/actions'
 
-function ToDoList({ todos }) {
+function ToDoList({ todos, title, item }) {
     function toggleItem(item) {
-        debugger
-        return ((item.id, {isDone: !item.isDone })
-/**
- * сделать изменение isDone 
- */
-        ,console.log ('toggle',item )
-        )
-    };
+        console.log(item)
+    }
     
-    //debugger
+    function onTitleChange(e) {
+        
+        return (title = e.target.value)
+    }
+
+    function onSave() {
+    
+        console.log("saved-todo")
+    }
+    
     return (
         <>
-            <div>
-                <ul>
-                    {todos.map((item) => (
-                        <ToDoListItem key={item.id} item={item} onToggle={toggleItem}/>
-                    ))}
-                </ul>
-            </div>
-            <ToDoInput></ToDoInput>
+            <ul>
+                {todos.map((item) => (
+                    <ToDoListItem   key={item.id}
+                                    item={item} 
+                                    onToggle={toggleItem} 
+                                    onSave={onSave}/>
+                ))}
+            </ul>
+            <ToDoInput title={title} onTitleChange={onTitleChange}></ToDoInput>
         </>
     )
 }
 
 function mapStateToProps(state) {
-    //debugger
+    debugger
     return {
         todos: state.todos,
-        //log: console.log('mapStateToProps-state', state), 
+        log: console.log('mapStateToProps-state', state), 
     }
 };
 
-const mapDispatchToprops = {
-    addNewListItem,
-};
+const mapDispatchToProps = {
+    toggleItem,
+}
 
-export default connect(mapStateToProps, mapDispatchToprops) (ToDoList)
+export default connect( mapStateToProps, mapDispatchToProps ) (ToDoList)
