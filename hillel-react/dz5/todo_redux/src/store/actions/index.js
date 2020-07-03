@@ -1,9 +1,9 @@
 
-export const TOGGLE_ITEM = 'ACTION/TOGGLE';
+export const TOGGLE_ACTION = 'ACTION/TOGGLE';
 
-export function toggleItem(value) {
+export function toggleAction(value) {
     return {
-        type: TOGGLE_ITEM,
+        type: TOGGLE_ACTION,
         payload: value,
     }
 }

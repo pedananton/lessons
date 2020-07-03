@@ -2,13 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
-import { toggleItem } from '../store/actions'
 
-function ToDoList({ todos, title, item }) {
-    function toggleItem(item) {
-        console.log(item)
-    }
-    
+function ToDoList({ todos, title, onToggle }) {
+
     function onTitleChange(e) {
         
         return (title = e.target.value)
@@ -18,14 +14,14 @@ function ToDoList({ todos, title, item }) {
     
         console.log("saved-todo")
     }
-    
+
     return (
         <>
             <ul>
                 {todos.map((item) => (
                     <ToDoListItem   key={item.id}
                                     item={item} 
-                                    onToggle={toggleItem} 
+                                    toggleItem={onToggle}
                                     onSave={onSave}/>
                 ))}
             </ul>
@@ -35,15 +31,10 @@ function ToDoList({ todos, title, item }) {
 }
 
 function mapStateToProps(state) {
-    debugger
     return {
         todos: state.todos,
-        log: console.log('mapStateToProps-state', state), 
+        //log: console.log('mapStateToProps-state', state), 
     }
 };
 
-const mapDispatchToProps = {
-    toggleItem,
-}
-
-export default connect( mapStateToProps, mapDispatchToProps ) (ToDoList)
+export default connect( mapStateToProps ) (ToDoList)

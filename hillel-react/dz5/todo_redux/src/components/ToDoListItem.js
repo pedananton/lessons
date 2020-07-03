@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { toggleAction } from '../store/actions'
 
 function ToDoListItem({item, onToggle, isDone}) {
     item.id = Date.now();    
@@ -13,11 +14,15 @@ function ToDoListItem({item, onToggle, isDone}) {
 
 function mapStateToProps(state) {
     return {
-        
+        //item: state,
     }
 };
 
-export default connect(mapStateToProps) (ToDoListItem)
+const mapDispatchToProps = {
+    //onToggle,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (ToDoListItem)
 
 function getStyles(item) {
     return {

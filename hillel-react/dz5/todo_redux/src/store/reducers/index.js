@@ -1,4 +1,4 @@
-import {TOGGLE_ITEM} from "../actions"
+import {TOGGLE_ACTION} from "../actions"
 
 const initialState = {
     todos: [
@@ -12,8 +12,9 @@ const initialState = {
 
 export default function (state = initialState, {type, payload=state.todos} ) {
     switch (type) {
-        case TOGGLE_ITEM:
-            state.todos.map(item.id, {...item, isDone: !item.isDone}) 
+        case TOGGLE_ACTION:
+            debugger
+            //state.todos.map(item.id, {...item, isDone: !item.isDone}) 
             return
         default: 
             return state;
