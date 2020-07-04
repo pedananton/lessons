@@ -1,11 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { toggleAction } from '../store/actions'
 
-function ToDoListItem({item}) {
+
+function ToDoListItem({item, onToggle}) {
     item.id = Date.now();    
+    
     return <li onClick={
-                toggleAction.bind(null, item)} 
+                onToggle.bind(null, item)} 
                 style={getStyles(item)}
                 >
                 {item.title}
