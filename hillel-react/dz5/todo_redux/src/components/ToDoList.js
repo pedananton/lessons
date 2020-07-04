@@ -18,7 +18,6 @@ function ToDoList({ todos, title, toggleAction }) {
 
     function toggleItem(item) {
         toggleAction(item)
-        //console.log('toggleItem', item)
     }
 
     return (
@@ -38,7 +37,7 @@ function ToDoList({ todos, title, toggleAction }) {
 
 function mapStateToProps(state) {
     return {
-        todos: state.todos,      //log: console.log('mapStateToProps', state)
+        todos: state.todos,  
     }
 };
 
