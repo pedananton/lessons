@@ -4,7 +4,7 @@ import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
 import { toggleAction } from '../store/actions'
 
-function ToDoList({ todos, title }) {
+function ToDoList({ todos, title, toggleAction }) {
 
     function onTitleChange(e) {
         

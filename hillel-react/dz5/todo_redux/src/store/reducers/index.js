@@ -14,9 +14,9 @@ export default function (state = initialState, {type, payload} ) {
     switch (type) {
         case TOGGLE_ACTION:
             debugger
+            console.log('TOGGLE_ACTION', this)
             const item = state.todos.item
             return (item.id, {...item, isDone: !item.isDone}) 
-            //return
         default: 
             return state;
     }
