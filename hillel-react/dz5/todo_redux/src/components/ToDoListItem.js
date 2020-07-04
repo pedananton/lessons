@@ -13,15 +13,7 @@ function ToDoListItem({item, onToggle}) {
             </li>
 }
 
-function mapStateToProps(state) {
-    return {
-        //item: state,
-    }
-};
-
-
-
-export default connect(mapStateToProps) (ToDoListItem)
+export default connect() (ToDoListItem)
 
 function getStyles(item) {
     return {

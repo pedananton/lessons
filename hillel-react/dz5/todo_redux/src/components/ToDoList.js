@@ -16,7 +16,7 @@ function ToDoList({ todos, title }) {
         console.log("saved-todo")
     }
 
-    toggleAction({todos}, console.log('toggleAction', this))
+    toggleAction(console.log('toggleAction', this))
 
     return (
         <>
