@@ -19,11 +19,9 @@ function mapStateToProps(state) {
     }
 };
 
-const mapDispatchToProps = {
-    //onToggle,
-}
 
-export default connect(mapStateToProps, mapDispatchToProps) (ToDoListItem)
+
+export default connect(mapStateToProps) (ToDoListItem)
 
 function getStyles(item) {
     return {

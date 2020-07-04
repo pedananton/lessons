@@ -16,7 +16,7 @@ function ToDoList({ todos, title }) {
         console.log("saved-todo")
     }
 
-    toggleAction({todos})
+    toggleAction({todos}, console.log('toggleAction', this))
 
     return (
         <>
@@ -36,8 +36,13 @@ function ToDoList({ todos, title }) {
 function mapStateToProps(state) {
     return {
         todos: state.todos,
+        item: state.todos.item,
         //log: console.log('mapStateToProps-state', state), 
     }
 };
 
-export default connect( mapStateToProps ) (ToDoList)
+const mapDispatchToProps = {
+    toggleAction,
+}
+
+export default connect( mapStateToProps, mapDispatchToProps ) (ToDoList)
