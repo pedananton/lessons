@@ -15,7 +15,7 @@ export default function (state = initialState, {type, payload} ) {
         case TOGGLE_ACTION:
             return { 
                 ...state,
-                todos: state.todos.map((item)=>({isDone: !item.isDone})),
+                todos: state.todos.map((item)=>({...item, isDone: !item.isDone})),
                 log: console.log('TOGGLE_ACTION', payload),
             }
         
