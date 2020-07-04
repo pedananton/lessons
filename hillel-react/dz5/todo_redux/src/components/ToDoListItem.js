@@ -2,10 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { toggleAction } from '../store/actions'
 
-function ToDoListItem({item, onToggle, isDone}) {
+function ToDoListItem({item, isDone}) {
     item.id = Date.now();    
     return <li onClick={
-                onToggle.bind(null, item)} 
+                toggleAction.bind(null, item)} 
                 style={getStyles(item)}
                 >
                 {item.title}

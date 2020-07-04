@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
 import ToDoInput from './ToDoInput'
 
-function ToDoList({ todos, title, onToggle }) {
+function ToDoList({ todos, title, toggleAction }) {
 
     function onTitleChange(e) {
         
@@ -21,7 +21,7 @@ function ToDoList({ todos, title, onToggle }) {
                 {todos.map((item) => (
                     <ToDoListItem   key={item.id}
                                     item={item} 
-                                    toggleItem={onToggle}
+                                    toggleItem={toggleAction}
                                     onSave={onSave}/>
                 ))}
             </ul>
