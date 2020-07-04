@@ -10,6 +10,7 @@ const initialState = {
     ],
 };
 
+
 export default function (state = initialState, {type, payload} ) {
     switch (type) {
         case TOGGLE_ACTION:
