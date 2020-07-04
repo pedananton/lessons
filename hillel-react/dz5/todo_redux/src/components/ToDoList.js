@@ -16,7 +16,9 @@ function ToDoList({ todos, title }) {
         console.log("saved-todo")
     }
 
-    toggleAction(console.log('toggleAction', this))
+    function toggleItem(item) {
+        toggleAction(console.log('toggleAction', item))
+    }
 
     return (
         <>
@@ -24,7 +26,7 @@ function ToDoList({ todos, title }) {
                 {todos.map((item) => (
                     <ToDoListItem   key={item.id}
                                     item={item} 
-                                    onToggle={toggleAction}
+                                    onToggle={toggleItem}
                                     onSave={onSave}/>
                 ))}
             </ul>
