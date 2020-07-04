@@ -18,7 +18,7 @@ function ToDoList({ todos, title, toggleAction }) {
 
     function toggleItem(item) {
         toggleAction(item)
-        console.log('toggleItem', item)
+        //console.log('toggleItem', item)
     }
 
     return (

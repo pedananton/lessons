@@ -1,11 +1,11 @@
 
 export const TOGGLE_ACTION = 'ACTION/TOGGLE';
 
-export function toggleAction(isDone) {
+export function toggleAction(item) {
     return {
         type: TOGGLE_ACTION,
-        payload: isDone,
-        log: console.log('toggleAction', isDone)
+        payload: item,
+        log: console.log('toggleAction', item)
     }
 }
 

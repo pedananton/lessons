@@ -15,10 +15,10 @@ export default function (state = initialState, {type, payload} ) {
         case TOGGLE_ACTION:
             //debugger
             
-            return { ...state, isDone: !payload.isDone, log: console.log('TOGGLE_ACTION', payload)}
+            return { ...state, isDone: !payload.isDone, log: console.log('TOGGLE_ACTION', !payload.isDone)}
         
             /**
-             * не меняет isDone повторно
+             * не меняет isDone 
              */
         
         default: 
