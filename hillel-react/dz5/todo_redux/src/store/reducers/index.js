@@ -10,12 +10,13 @@ const initialState = {
     ],
 };
 
-export default function (state = initialState, {type, payload=state.todos} ) {
+export default function (state = initialState, {type, payload} ) {
     switch (type) {
         case TOGGLE_ACTION:
             debugger
-            //state.todos.map(item.id, {...item, isDone: !item.isDone}) 
-            return
+            const item = state.todos.item
+            return (item.id, {...item, isDone: !item.isDone}) 
+            //return
         default: 
             return state;
     }
