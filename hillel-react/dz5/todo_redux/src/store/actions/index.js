@@ -5,7 +5,7 @@ export function toggleAction(item) {
     return {
         type: TOGGLE_ACTION,
         payload: item,
-        log: console.log('toggleAction', item)
+        //log: console.log('toggleAction', item)
     }
 }
 
