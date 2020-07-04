@@ -38,8 +38,8 @@ function ToDoList({ todos, title, toggleAction }) {
 function mapStateToProps(state) {
     return {
         todos: state.todos,
-        item: state.todos.item,
-        //log: console.log('mapStateToProps-state', state), 
+        
+        log: console.log('mapStateToProps-state', state), 
     }
 };
 

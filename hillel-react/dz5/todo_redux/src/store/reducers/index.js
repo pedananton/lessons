@@ -13,10 +13,10 @@ const initialState = {
 export default function (state = initialState, {type, payload} ) {
     switch (type) {
         case TOGGLE_ACTION:
-            debugger
-            console.log('TOGGLE_ACTION', this)
-            const item = state.todos.item
-            return (item.id, {...item, isDone: !item.isDone}) 
+            //debugger
+            console.log('TOGGLE_ACTION', state)
+            return ({...state, isDone: !state.todos.isDone}) 
+        
         default: 
             return state;
     }
