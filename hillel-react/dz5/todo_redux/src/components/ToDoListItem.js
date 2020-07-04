@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { toggleAction } from '../store/actions'
 
-function ToDoListItem({item, isDone}) {
+function ToDoListItem({item}) {
     item.id = Date.now();    
     return <li onClick={
                 toggleAction.bind(null, item)} 
