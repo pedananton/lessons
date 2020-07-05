@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ToDoInput({ title, onTitleChange, onSave }) {
+function ToDoForm({ title, onTitleChange, onSave }) {
     function onSubmit(e) {
         e.preventDefault();
         onSave();
@@ -18,4 +18,4 @@ function ToDoInput({ title, onTitleChange, onSave }) {
     )
 }
 
-export default ToDoInput;
+export default ToDoForm;

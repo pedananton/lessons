@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ToDoListItem from './ToDoListItem'
-import ToDoInput from './ToDoInput'
+import ToDoForm from './ToDoForm'
 import { toggleAction } from '../store/actions'
 
 function ToDoList({ todos, title, toggleAction }) {
@@ -30,7 +30,7 @@ function ToDoList({ todos, title, toggleAction }) {
                                     onSave={onSave}/>
                 ))}
             </ul>
-            <ToDoInput title={title} onTitleChange={onTitleChange}></ToDoInput>
+            <ToDoForm title={title} onTitleChange={onTitleChange}></ToDoForm>
         </>
     )
 }
