@@ -21,7 +21,7 @@ export default function (state = initialState, {type, payload} ) {
                 formItem: payload
                     ? state.contacts.find((contact) => contact.id === payload)
                     : getEmptyItem(),
-                    log: ,
+                    log: console.log('ACTION_OPEN_MODAL'),
             };
         case ACTION_SET_CONTACTS:
             return { ...state, contacts: payload };
