@@ -9,6 +9,13 @@ export function openModal(id) {
     };
 }
 
+export const ACTION_CLOSE_MODAL = 'ACTION_CLOSE_MODAL';
+export function closeModal() {
+    return {
+        type: ACTION_CLOSE_MODAL,
+    };
+}
+
 export const TOGGLE_ACTION = 'ACTION/TOGGLE';
 export function toggleAction(id) {
     return {

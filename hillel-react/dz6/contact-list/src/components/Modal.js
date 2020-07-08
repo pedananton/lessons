@@ -1,5 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {
+    closeModal,
+    //changeFormItem,
+    //saveFormItem,
+} from '../store/actions/index';
 
 function Modal({ contact, onChange, onSave, onCancel }) {
     return (
@@ -11,7 +16,7 @@ function Modal({ contact, onChange, onSave, onCancel }) {
                         style={inputStyles}
                         type="text"
                         name="title"
-                        value={contact.name}
+                        value={contact}
                         //onChange={onValueChange}
                     />
                 </div>
@@ -53,4 +58,10 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Modal);
+const mapDispatchToProps = {
+    onCancel: closeModal,
+    //onChange: changeFormItem,
+    //onSave: saveFormItem,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

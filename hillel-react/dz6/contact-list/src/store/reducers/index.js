@@ -2,6 +2,7 @@ import {
     TOGGLE_ACTION,
     ACTION_SET_CONTACTS,
     ACTION_OPEN_MODAL,
+    ACTION_CLOSE_MODAL,
 } from "../actions"
 
 const initialState = {
@@ -21,10 +22,17 @@ export default function (state = initialState, {type, payload} ) {
                 formItem: payload
                     ? state.contacts.find((contact) => contact.id === payload)
                     : getEmptyItem(),
-                    log: console.log('ACTION_OPEN_MODAL'),
             };
+
+            case ACTION_CLOSE_MODAL:
+            return {
+                ...state,
+                formItem: null,
+            };
+
         case ACTION_SET_CONTACTS:
             return { ...state, contacts: payload };
+
         case TOGGLE_ACTION:
             return { 
                 

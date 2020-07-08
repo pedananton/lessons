@@ -37,7 +37,9 @@ function mapStateToProps(state) {
         modalVisible: !!state.contacts.formItem,
     }
 };
-
+/**
+ * реализовать openModal
+ */
 const mapDispatchToProps = {
     toggleAction,
     openModal: openModal,
