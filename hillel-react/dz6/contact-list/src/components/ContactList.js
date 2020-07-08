@@ -5,7 +5,8 @@ import { toggleAction } from '../store/actions/index'
 import Modal from './Modal'
 import { openModal } from '../store/actions/index'
 
-function ContactList({ contacts, modalVisible, openModal }) {
+function ContactList({ modalVisible, openModal, contacts }) {
+    //debugger
     return (
         <>
             <button onClick={() => openModal()}>Add New</button>
@@ -18,12 +19,10 @@ function ContactList({ contacts, modalVisible, openModal }) {
                             <th>Телефон</th>
                         </tr>
                             {contacts.map((contact) => (
-                                <tr key={contact.id}>
                                     <Contact 
                                     key={contact.id}
                                     contact={contact}
                                     />
-                                </tr>
                             ))}
                 </tbody>
             </table>
@@ -38,7 +37,7 @@ function mapStateToProps(state) {
     }
 };
 /**
- * реализовать openModal
+ * реализовать openmodal
  */
 const mapDispatchToProps = {
     toggleAction,

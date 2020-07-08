@@ -12,7 +12,8 @@ const initialState = {
 
 export default function (state = initialState, {type, payload} ) {
     function getEmptyItem() {
-        return { title: 'new Contact', isDone: false };
+        console.log('case ACTION_OPEN_MODAL', state)
+        return { name: 'new Contact' };
     }
 
     switch (type) {
