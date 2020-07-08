@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 
 import store from './store';
 import { Provider } from 'react-redux';
+import { fetchContacts } from './store/actions';
+
+store.dispatch(fetchContacts());
 
 ReactDOM.render(
   <React.StrictMode>

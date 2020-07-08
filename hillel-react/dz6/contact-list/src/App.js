@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <header>
-        <caption>Contact List</caption>
+        <center><h2>Contact List</h2></center>
         <ul>
             <li>
               <Link to="/">Home</Link>{' '}
@@ -27,7 +27,7 @@ function App() {
             </li>
         </ul>
       </header>
-      <switch>
+      <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
@@ -40,7 +40,7 @@ function App() {
         <Route path="*">
           <Redirect to="/" />
         </Route>
-      </switch>
+      </Switch>
     </Router>
   );
 }
