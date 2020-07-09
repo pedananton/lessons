@@ -16,12 +16,12 @@ export function closeModal() {
     };
 }
 
-export const TOGGLE_ACTION = 'ACTION/TOGGLE';
-export function toggleAction(id) {
+export const ACTION_CHANGE_FORM_ITEM = 'ACTION_CHANGE_FORM_ITEM';
+export function changeFormItem(changes) {
     return {
-        type: TOGGLE_ACTION,
-        payload: id,
-    }
+        type: ACTION_CHANGE_FORM_ITEM,
+        payload: changes,
+    };
 }
 
 export const ACTION_SET_CONTACTS = 'ACTION_SET_CONTACTS';

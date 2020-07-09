@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Contact from './Contact'
-import { toggleAction } from '../store/actions/index'
 import Modal from './Modal'
 import { openModal } from '../store/actions/index'
 
@@ -33,14 +32,11 @@ function ContactList({ modalVisible, openModal, contacts }) {
 function mapStateToProps(state) {
     return {
         contacts: state.contacts,  
-        modalVisible: !!state.contacts.formItem,
+        modalVisible: !!state.formItem,
     }
 };
-/**
- * реализовать openmodal
- */
+
 const mapDispatchToProps = {
-    toggleAction,
     openModal: openModal,
 }
 

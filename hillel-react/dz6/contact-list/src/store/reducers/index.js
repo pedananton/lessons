@@ -1,5 +1,4 @@
 import {
-    TOGGLE_ACTION,
     ACTION_SET_CONTACTS,
     ACTION_OPEN_MODAL,
     ACTION_CLOSE_MODAL,
@@ -12,8 +11,7 @@ const initialState = {
 
 export default function (state = initialState, {type, payload} ) {
     function getEmptyItem() {
-        console.log('case ACTION_OPEN_MODAL', state)
-        return { name: 'new Contact' };
+        return { name: ' name', surname: ' surname', phone: ' phone' };
     }
 
     switch (type) {
@@ -33,12 +31,6 @@ export default function (state = initialState, {type, payload} ) {
 
         case ACTION_SET_CONTACTS:
             return { ...state, contacts: payload };
-
-        case TOGGLE_ACTION:
-            return { 
-                
-                log: console.log('TOGGLE_ACTION', payload),
-            }
         
         default: 
             return state;

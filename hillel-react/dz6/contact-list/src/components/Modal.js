@@ -2,11 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {
     closeModal,
-    //changeFormItem,
-    //saveFormItem,
+    changeFormItem,
 } from '../store/actions/index';
 
 function Modal({ contact, onChange, onSave, onCancel }) {
+    function onValueChange(e) {
+        const changes = {
+            title: e.target.value,
+        };
+        onChange(changes);
+    }
+
     return (
         <>
             <div style={backgroundStyles} />
@@ -15,9 +21,20 @@ function Modal({ contact, onChange, onSave, onCancel }) {
                     <input
                         style={inputStyles}
                         type="text"
-                        name="title"
-                        value={contact}
-                        //onChange={onValueChange}
+                        onChange={onValueChange}
+                        value={contact.name}
+                    />
+                    <input
+                        style={inputStyles}
+                        type="text"
+                        onChange={onValueChange}
+                        value={contact.surname}
+                    />
+                    <input
+                        style={inputStyles}
+                        type="text"
+                        onChange={onValueChange}
+                        value={contact.phone}
                     />
                 </div>
                 <div>
@@ -54,14 +71,13 @@ const inputStyles = {
 
 function mapStateToProps(state) {
     return {
-        contact: state.contacts.formItem,
+        contact: state.formItem,
     };
 }
 
 const mapDispatchToProps = {
     onCancel: closeModal,
-    //onChange: changeFormItem,
-    //onSave: saveFormItem,
+    onChange: changeFormItem,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
