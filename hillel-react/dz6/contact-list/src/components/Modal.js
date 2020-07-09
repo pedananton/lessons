@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import {
     closeModal,
     changeFormItem,
+    saveFormContact,
 } from '../store/actions/index';
 
 function Modal({ contact, onChange, onSave, onCancel }) {
     function onValueChange(e) {
         const changes = {
-            title: e.target.value,
+            content: e.target.value,
         };
         onChange(changes);
     }
@@ -21,20 +22,21 @@ function Modal({ contact, onChange, onSave, onCancel }) {
                     <input
                         style={inputStyles}
                         type="text"
+                        name='name'
                         onChange={onValueChange}
-                        value={contact.name}
+                        value={contact.content}
                     />
                     <input
                         style={inputStyles}
                         type="text"
                         onChange={onValueChange}
-                        value={contact.surname}
+                        
                     />
                     <input
                         style={inputStyles}
                         type="text"
                         onChange={onValueChange}
-                        value={contact.phone}
+                        
                     />
                 </div>
                 <div>
@@ -78,6 +80,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     onCancel: closeModal,
     onChange: changeFormItem,
+    onSave: saveFormContact,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

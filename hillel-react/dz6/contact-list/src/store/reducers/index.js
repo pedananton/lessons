@@ -2,7 +2,8 @@ import {
     ACTION_SET_CONTACTS,
     ACTION_OPEN_MODAL,
     ACTION_CLOSE_MODAL,
-    ACTION_TOGGLE
+    ACTION_TOGGLE,
+    ACTION_CREATE_CONTACT,
 } from "../actions"
 
 const initialState = {
@@ -13,6 +14,10 @@ const initialState = {
 export default function (state = initialState, {type, payload} ) {
     function getEmptyItem() {
         return { name: ' name', surname: ' surname', phone: ' phone' };
+    }
+
+    function createContact(contacts, contact) {
+        return [...contacts, contact];
     }
 
     switch (type) {
@@ -34,6 +39,9 @@ export default function (state = initialState, {type, payload} ) {
                     ? state.contacts.find((contact) => contact.id === payload)
                     : getEmptyItem(),
             };
+            /**
+             * что делает ACTION_OPEN_MODAL ??
+             */
 
             case ACTION_CLOSE_MODAL:
             return {
@@ -43,6 +51,12 @@ export default function (state = initialState, {type, payload} ) {
 
         case ACTION_SET_CONTACTS:
             return { ...state, contacts: payload };
+
+        case ACTION_CREATE_CONTACT:
+            return {
+                ...state,
+                contacts: createContact(state.contacts, payload),
+            };
         
         default: 
             return state;

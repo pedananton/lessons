@@ -1,5 +1,18 @@
 import api from '../../api';
 
+export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
+export function saveFormContact(changes) {
+    return function(dispatch) {
+            api.post('', changes).then((resp) =>
+                dispatch({
+                    type: ACTION_CREATE_CONTACT,
+                    payload: resp.data,
+                })
+            )
+        dispatch(closeModal());
+    }
+}
+
 export const ACTION_TOGGLE = 'ACTION_TOGGLE';
 export function toggleContact(id) {
     return {
