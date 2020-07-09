@@ -1,5 +1,12 @@
 import api from '../../api';
 
+export const ACTION_TOGGLE = 'ACTION_TOGGLE';
+export function toggleContact(id) {
+    return {
+        type: ACTION_TOGGLE,
+        payload: id,
+    };
+}
 
 export const ACTION_OPEN_MODAL = 'ACTION_OPEN_MODAL';
 export function openModal(id) {

@@ -2,6 +2,7 @@ import {
     ACTION_SET_CONTACTS,
     ACTION_OPEN_MODAL,
     ACTION_CLOSE_MODAL,
+    ACTION_TOGGLE
 } from "../actions"
 
 const initialState = {
@@ -15,6 +16,17 @@ export default function (state = initialState, {type, payload} ) {
     }
 
     switch (type) {
+        case ACTION_TOGGLE :
+            return {
+                ...state,
+                log: console.log('ACTION_TOGGLE'),
+                contacts: state.contacts.map((contact) => 
+                    contact.id !== payload
+                    ? contact
+                    : {...contact, isToggle: !contact.isToggle }
+                )
+            }
+
         case ACTION_OPEN_MODAL:
             return {
                 ...state,

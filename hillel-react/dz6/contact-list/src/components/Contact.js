@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Contact({contact}) {
+function Contact({contact, onToggle}) {
     return (
         <>
-            <tr>
+            <tr 
+                onClick={() => onToggle(contact.id, console.log('onToggle', contact))}
+                style={{backgroundColor: contact.isToggle ? 'grey' : 'none'}}
+                    >
                 <td>
                     {contact.name}
                 </td>
