@@ -12,7 +12,7 @@ const initialState = {
 };
 
 function getEmptyItem() {
-    return { title: 'new Todo', isDone: false };
+    return { name: ' name', surname: ' surname', phone: ' phone' };
 }
 
 function createContact(contacts, contact) {
@@ -24,7 +24,6 @@ export default function (state = initialState, {type, payload} ) {
         case ACTION_TOGGLE :
             return {
                 ...state,
-                log: console.log('ACTION_TOGGLE'),
                 contacts: state.contacts.map((contact) => 
                     contact.id !== payload
                     ? contact
@@ -38,7 +37,7 @@ export default function (state = initialState, {type, payload} ) {
                 formItem: payload
                     ? state.todos.find((item) => item.id === payload)
                     : getEmptyItem(),
-                log: console.log('ACTION_OPEN_MODAL', payload),
+                log: console.log('ACTION_OPEN_MODAL', state),
             };
 
             case ACTION_CLOSE_MODAL:
