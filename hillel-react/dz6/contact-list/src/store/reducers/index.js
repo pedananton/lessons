@@ -12,9 +12,7 @@ const initialState = {
 };
 
 export default function (state = initialState, {type, payload} ) {
-    function getEmptyItem() {
-        return { name: ' name', surname: ' surname', phone: ' phone' };
-    }
+   
 
     function createContact(contacts, contact) {
         return [...contacts, contact];
@@ -35,12 +33,10 @@ export default function (state = initialState, {type, payload} ) {
         case ACTION_OPEN_MODAL:
             return {
                 ...state,
-                formItem: payload
-                    ? state.contacts.find((contact) => contact.id === payload, 
-                    console.log('ACTION_OPEN_MODAL', payload))
-                    : getEmptyItem(),
+                formItem: payload,
+                log: console.log('ACTION_OPEN_MODAL', payload),
             };
-//true ? ok : no
+
             case ACTION_CLOSE_MODAL:
             return {
                 ...state,

@@ -5,10 +5,14 @@ import Modal from './Modal'
 import { openModal, toggleContact } from '../store/actions/index'
 
 function ContactList({ onToggle, modalVisible, openModal, contacts }) {
+    /**
+     * реализовть логику открытие modal
+     */
     return (
         <>
             <button onClick={() => openModal()}>Add New</button>
-            {modalVisible ? <Modal /> : null}
+            <Modal
+            />
             <table>
                 <tbody>
                         <tr>

@@ -24,7 +24,7 @@ function Modal({ contact, onChange, onSave, onCancel }) {
                         type="text"
                         name='name'
                         onChange={onValueChange}
-                        value={contact.content}
+                        //value={contact.content}
                     />
                     <input
                         style={inputStyles}
