@@ -11,8 +11,7 @@ function ContactList({ onToggle, modalVisible, openModal, contacts }) {
     return (
         <>
             <button onClick={() => openModal()}>Add New</button>
-            <Modal
-            />
+            {modalVisible ? <Modal /> : null}
             <table>
                 <tbody>
                         <tr>

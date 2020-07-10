@@ -11,13 +11,15 @@ const initialState = {
     formItem: null,
 };
 
+function getEmptyItem() {
+    return { title: 'new Todo', isDone: false };
+}
+
+function createContact(contacts, contact) {
+    return [...contacts, contact];
+}
+
 export default function (state = initialState, {type, payload} ) {
-   
-
-    function createContact(contacts, contact) {
-        return [...contacts, contact];
-    }
-
     switch (type) {
         case ACTION_TOGGLE :
             return {
@@ -33,7 +35,9 @@ export default function (state = initialState, {type, payload} ) {
         case ACTION_OPEN_MODAL:
             return {
                 ...state,
-                formItem: payload,
+                formItem: payload
+                    ? state.todos.find((item) => item.id === payload)
+                    : getEmptyItem(),
                 log: console.log('ACTION_OPEN_MODAL', payload),
             };
 
