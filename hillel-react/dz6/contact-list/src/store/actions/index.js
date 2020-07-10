@@ -3,12 +3,14 @@ import api from '../../api';
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
 export function saveFormContact(changes) {
     return function(dispatch) {
+        
             api.post('', changes).then((resp) =>
                 dispatch({
                     type: ACTION_CREATE_CONTACT,
                     payload: resp.data,
                 })
             )
+            console.log('saveFormContact',changes )
         dispatch(closeModal());
     }
 }

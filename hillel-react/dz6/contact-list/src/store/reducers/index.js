@@ -11,8 +11,8 @@ const initialState = {
     formItem: null,
 };
 
-function getEmptyItem() {
-    return { name: ' name', surname: ' surname', phone: ' phone' };
+function getEmptyItem(contact) {
+    return { name: 'contact', surname: 'contact', phone: 'contact' };
 }
 
 function createContact(contacts, contact) {
@@ -21,23 +21,14 @@ function createContact(contacts, contact) {
 
 export default function (state = initialState, {type, payload} ) {
     switch (type) {
-        case ACTION_TOGGLE :
-            return {
-                ...state,
-                contacts: state.contacts.map((contact) => 
-                    contact.id !== payload
-                    ? contact
-                    : {...contact, isToggle: !contact.isToggle }
-                )
-            }
 
         case ACTION_OPEN_MODAL:
+            console.log('ACTION_OPEN_MODAL', payload)
             return {
                 ...state,
                 formItem: payload
-                    ? state.todos.find((item) => item.id === payload)
+                    ? state.formItem.value
                     : getEmptyItem(),
-                log: console.log('ACTION_OPEN_MODAL', state),
             };
 
             case ACTION_CLOSE_MODAL:
@@ -50,10 +41,21 @@ export default function (state = initialState, {type, payload} ) {
             return { ...state, contacts: payload };
 
         case ACTION_CREATE_CONTACT:
+            console.log('ACTION_CREATE_CONTACT', payload)
             return {
                 ...state,
                 contacts: createContact(state.contacts, payload),
             };
+            
+        case ACTION_TOGGLE :
+            return {
+                ...state,
+                contacts: state.contacts.map((contact) => 
+                    contact.id !== payload
+                    ? contact
+                    : {...contact, isToggle: !contact.isToggle }
+                )
+            }
         
         default: 
             return state;
