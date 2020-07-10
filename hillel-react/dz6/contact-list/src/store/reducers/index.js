@@ -36,13 +36,11 @@ export default function (state = initialState, {type, payload} ) {
             return {
                 ...state,
                 formItem: payload
-                    ? state.contacts.find((contact) => contact.id === payload)
+                    ? state.contacts.find((contact) => contact.id === payload, 
+                    console.log('ACTION_OPEN_MODAL', payload))
                     : getEmptyItem(),
             };
-            /**
-             * что делает ACTION_OPEN_MODAL ??
-             */
-
+//true ? ok : no
             case ACTION_CLOSE_MODAL:
             return {
                 ...state,
