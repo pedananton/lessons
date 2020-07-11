@@ -25,7 +25,6 @@ export function saveFormContact(changes) {
                         payload: resp.data,
                     })
                 )
-                //console.log('saveFormContact',changes )
                 dispatch(closeModal());
             } 
         } else {

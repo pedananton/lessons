@@ -4,7 +4,7 @@ function Contact({contact, onToggle, onContactDelete}) {
     return (
         <>
             <tr 
-                onClick={() => onToggle(contact.id, console.log('onToggle', contact))}
+                onClick={() => onToggle(contact.id)}
                 style={{backgroundColor: contact.isToggle ? 'grey' : 'none'}}
                     >
                 <td>
@@ -19,7 +19,9 @@ function Contact({contact, onToggle, onContactDelete}) {
                 <td>
                     <button 
                         style={buttonStyles}
-                        onClick={e => e.stopPropagation() || onContactDelete(contact.id)}
+                        onClick={
+                            e => e.stopPropagation() || onContactDelete( contact.id )
+                        }
                     >
                         Delete
                     </button>
