@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Contact({contact, onToggle}) {
+function Contact({contact, onToggle, onContactDelete}) {
     return (
         <>
             <tr 
@@ -16,9 +16,21 @@ function Contact({contact, onToggle}) {
                 <td>
                     {contact.phone}
                 </td>
+                <td>
+                    <button 
+                        style={buttonStyles}
+                        onClick={e => e.stopPropagation() || onContactDelete(contact.id)}
+                    >
+                        Delete
+                    </button>
+                </td>
             </tr>
         </>
     )
 }
+
+const buttonStyles = {
+    float: 'right'
+};
 
 export default Contact

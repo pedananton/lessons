@@ -5,6 +5,7 @@ import {
     ACTION_TOGGLE,
     ACTION_CREATE_CONTACT,
     ACTION_CHANGE_FORM_ITEM,
+    ACTION_DELETE,
 } from "../actions"
 
 const initialState = {
@@ -18,12 +19,16 @@ function createContact(contacts, contact) {
 
 export default function (state = initialState, {type, payload} ) {
     switch (type) {
+        case ACTION_DELETE:
+            return {
+                ...state,
+                contacts: state.contacts.filter((contact) => contact.id !== payload),
+            };
 
         case ACTION_OPEN_MODAL:
             return {
                 ...state,
                 formItem: { name: 'contact', surname: 'contact', phone: 'contact' },
-                log: console.log('ACTION_OPEN_MODAL', state.formItem),
             };
 
         case ACTION_CHANGE_FORM_ITEM:
@@ -46,7 +51,6 @@ export default function (state = initialState, {type, payload} ) {
             return {
                 ...state,
                 contacts: createContact(state.contacts, payload),
-                log: console.log('ACTION_CREATE_CONTACT', payload),
             };
             
         case ACTION_TOGGLE :

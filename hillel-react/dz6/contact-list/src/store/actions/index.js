@@ -1,5 +1,17 @@
 import api from '../../api';
 
+export const ACTION_DELETE = 'ACTION_DELETE';
+export function deleteContact(id) {
+    return function(dispatch) {
+        api.delete(id).then(() =>
+            dispatch({
+                type: ACTION_DELETE,
+                payload: id,
+            })
+        )
+    }
+}
+ 
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
 export function saveFormContact(changes) {
     var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
@@ -13,7 +25,7 @@ export function saveFormContact(changes) {
                         payload: resp.data,
                     })
                 )
-                console.log('saveFormContact',changes )
+                //console.log('saveFormContact',changes )
                 dispatch(closeModal());
             } 
         } else {
