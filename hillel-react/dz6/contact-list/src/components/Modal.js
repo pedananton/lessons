@@ -6,18 +6,12 @@ import {
     saveFormContact,
 } from '../store/actions/index';
 
-function Modal({ contact, onNameChange, onSurValueChange, onSave, onCancel }) {
-    function onNameValueChange(e) {
-        const nameChanges = {
+function Modal({ contact, onContactChange, onSave, onCancel }) {
+    function onValueChange(e) {
+        const changes = {
             name: e.target.value,
         };
-        onNameChange(nameChanges);
-    }
-    function onSurnameValueChange(e) {
-        const nameChanges = {
-            name: e.target.value,
-        };
-        onNameChange(nameChanges);
+        onContactChange(changes);
     }
 
     return (
@@ -29,13 +23,13 @@ function Modal({ contact, onNameChange, onSurValueChange, onSave, onCancel }) {
                         style={inputStyles}
                         type="text"
                         name='name'
-                        onChange={onNameValueChange}
+                        onChange={onValueChange}
                         value={contact.name}
                     />
                     <input
                         style={inputStyles}
                         type="text"
-                        onChange={onSurnameValueChange}
+                        //onChange={onSurnameValueChange}
                         //value={contact.surname}
                     />
                     <input
@@ -85,8 +79,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     onCancel: closeModal,
-    onNameChange: changeFormItem,
-    onSurnameValueChange: changeFormItem,
+    onContactChange: changeFormItem,
     onSave: saveFormContact,
 };
 

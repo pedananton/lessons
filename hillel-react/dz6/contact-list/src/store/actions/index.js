@@ -1,16 +1,16 @@
 import api from '../../api';
 
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
-export function saveFormContact(nameChanges) {
+export function saveFormContact(changes) {
     return function(dispatch) {
         
-            api.post('', nameChanges).then((resp) =>
+            api.post('', changes).then((resp) =>
                 dispatch({
                     type: ACTION_CREATE_CONTACT,
                     payload: resp.data,
                 })
             )
-            console.log('saveFormContact',nameChanges )
+            console.log('saveFormContact',changes )
         dispatch(closeModal());
     }
 }
@@ -39,10 +39,10 @@ export function closeModal() {
 }
 
 export const ACTION_CHANGE_FORM_ITEM = 'ACTION_CHANGE_FORM_ITEM';
-export function changeFormItem(nameChanges) {
+export function changeFormItem(changes) {
     return {
         type: ACTION_CHANGE_FORM_ITEM,
-        payload: nameChanges,
+        payload: changes,
     };
 }
 
