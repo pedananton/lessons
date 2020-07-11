@@ -4,16 +4,13 @@ import {
     ACTION_CLOSE_MODAL,
     ACTION_TOGGLE,
     ACTION_CREATE_CONTACT,
+    ACTION_CHANGE_FORM_ITEM,
 } from "../actions"
 
 const initialState = {
     contacts: [],
     formItem: null,
 };
-
-function getEmptyItem(contact) {
-    return { name: 'contact', surname: 'contact', phone: 'contact' };
-}
 
 function createContact(contacts, contact) {
     return [...contacts, contact];
@@ -23,15 +20,19 @@ export default function (state = initialState, {type, payload} ) {
     switch (type) {
 
         case ACTION_OPEN_MODAL:
-            console.log('ACTION_OPEN_MODAL', payload)
             return {
                 ...state,
-                formItem: payload
-                    ? state.formItem.value
-                    : getEmptyItem(),
+                formItem: { name: 'contact', surname: 'contact', phone: 'contact' },
+                log: console.log('ACTION_OPEN_MODAL', state.formItem),
             };
 
-            case ACTION_CLOSE_MODAL:
+        case ACTION_CHANGE_FORM_ITEM:
+            return {
+                ...state,
+                formItem: { ...state.formItem, ...payload },
+            };   
+
+        case ACTION_CLOSE_MODAL:
             return {
                 ...state,
                 formItem: null,
@@ -41,10 +42,11 @@ export default function (state = initialState, {type, payload} ) {
             return { ...state, contacts: payload };
 
         case ACTION_CREATE_CONTACT:
-            console.log('ACTION_CREATE_CONTACT', payload)
+            
             return {
                 ...state,
                 contacts: createContact(state.contacts, payload),
+                log: console.log('ACTION_CREATE_CONTACT', payload),
             };
             
         case ACTION_TOGGLE :

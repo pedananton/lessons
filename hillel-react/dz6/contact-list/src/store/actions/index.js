@@ -1,16 +1,16 @@
 import api from '../../api';
 
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
-export function saveFormContact(changes) {
+export function saveFormContact(nameChanges) {
     return function(dispatch) {
         
-            api.post('', changes).then((resp) =>
+            api.post('', nameChanges).then((resp) =>
                 dispatch({
                     type: ACTION_CREATE_CONTACT,
                     payload: resp.data,
                 })
             )
-            console.log('saveFormContact',changes )
+            console.log('saveFormContact',nameChanges )
         dispatch(closeModal());
     }
 }
@@ -24,10 +24,10 @@ export function toggleContact(id) {
 }
 
 export const ACTION_OPEN_MODAL = 'ACTION_OPEN_MODAL';
-export function openModal(id) {
+export function openModal(name) {
     return {
         type: ACTION_OPEN_MODAL,
-        payload: id,
+        payload: name,
     };
 }
 
@@ -39,10 +39,10 @@ export function closeModal() {
 }
 
 export const ACTION_CHANGE_FORM_ITEM = 'ACTION_CHANGE_FORM_ITEM';
-export function changeFormItem(changes) {
+export function changeFormItem(nameChanges) {
     return {
         type: ACTION_CHANGE_FORM_ITEM,
-        payload: changes,
+        payload: nameChanges,
     };
 }
 

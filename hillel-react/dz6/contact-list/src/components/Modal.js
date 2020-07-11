@@ -6,12 +6,18 @@ import {
     saveFormContact,
 } from '../store/actions/index';
 
-function Modal({ contact, onChange, onSave, onCancel }) {
-    function onValueChange(e) {
-        const changes = {
-            content: e.target.value,
+function Modal({ contact, onNameChange, onSurValueChange, onSave, onCancel }) {
+    function onNameValueChange(e) {
+        const nameChanges = {
+            name: e.target.value,
         };
-        onChange(changes);
+        onNameChange(nameChanges);
+    }
+    function onSurnameValueChange(e) {
+        const nameChanges = {
+            name: e.target.value,
+        };
+        onNameChange(nameChanges);
     }
 
     return (
@@ -23,20 +29,20 @@ function Modal({ contact, onChange, onSave, onCancel }) {
                         style={inputStyles}
                         type="text"
                         name='name'
-                        onChange={onValueChange}
-                        //value={contact.content}
+                        onChange={onNameValueChange}
+                        value={contact.name}
                     />
                     <input
                         style={inputStyles}
                         type="text"
-                        onChange={onValueChange}
-                        
+                        onChange={onSurnameValueChange}
+                        //value={contact.surname}
                     />
                     <input
                         style={inputStyles}
                         type="text"
-                        onChange={onValueChange}
-                        
+                        //onPhoneChange={onPhoneValueChange}
+                        //value={contact.phone}
                     />
                 </div>
                 <div>
@@ -79,7 +85,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     onCancel: closeModal,
-    onChange: changeFormItem,
+    onNameChange: changeFormItem,
+    onSurnameValueChange: changeFormItem,
     onSave: saveFormContact,
 };
 
