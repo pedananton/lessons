@@ -6,12 +6,24 @@ import {
     saveFormContact,
 } from '../store/actions/index';
 
-function Modal({ contact, onContactChange, onSave, onCancel }) {
-    function onValueChange(e) {
+function Modal({ contact, onNameChange, onSurnameChange, onPhoneChange, onSave, onCancel }) {
+    function onNameValueChange(e) {
         const changes = {
             name: e.target.value,
         };
-        onContactChange(changes);
+        onNameChange(changes);
+    }
+    function onSurnameValueChange(e) {
+        const changes = {
+            surname: e.target.value,
+        };
+        onSurnameChange(changes);
+    }
+    function onPhoneValueChange(e) {
+        const changes = {
+            phone: e.target.value,
+        };
+        onPhoneChange(changes);
     }
 
     return (
@@ -23,20 +35,20 @@ function Modal({ contact, onContactChange, onSave, onCancel }) {
                         style={inputStyles}
                         type="text"
                         name='name'
-                        onChange={onValueChange}
+                        onChange={onNameValueChange}
                         value={contact.name}
                     />
                     <input
                         style={inputStyles}
                         type="text"
-                        //onChange={onSurnameValueChange}
-                        //value={contact.surname}
+                        onChange={onSurnameValueChange}
+                        value={contact.surname}
                     />
                     <input
                         style={inputStyles}
                         type="text"
-                        //onPhoneChange={onPhoneValueChange}
-                        //value={contact.phone}
+                        onChange={onPhoneValueChange}
+                        value={contact.phone}
                     />
                 </div>
                 <div>
@@ -79,7 +91,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     onCancel: closeModal,
-    onContactChange: changeFormItem,
+    onNameChange: changeFormItem,
+    onSurnameChange: changeFormItem,
+    onPhoneChange: changeFormItem,
     onSave: saveFormContact,
 };
 

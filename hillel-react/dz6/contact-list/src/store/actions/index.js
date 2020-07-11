@@ -2,17 +2,23 @@ import api from '../../api';
 
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
 export function saveFormContact(changes) {
-    return function(dispatch) {
+    var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+        var valid = re.test(changes.phone);
+        if (valid&&changes.name&&changes.surname !== "") {
+            return function(dispatch) {
         
-            api.post('', changes).then((resp) =>
-                dispatch({
-                    type: ACTION_CREATE_CONTACT,
-                    payload: resp.data,
-                })
-            )
-            console.log('saveFormContact',changes )
-        dispatch(closeModal());
-    }
+                api.post('', changes).then((resp) =>
+                    dispatch({
+                        type: ACTION_CREATE_CONTACT,
+                        payload: resp.data,
+                    })
+                )
+                console.log('saveFormContact',changes )
+                dispatch(closeModal());
+            } 
+        } else {
+            (alert('Некорректный номер или имя!'))}
+    
 }
 
 export const ACTION_TOGGLE = 'ACTION_TOGGLE';
