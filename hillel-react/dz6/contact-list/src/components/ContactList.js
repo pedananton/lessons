@@ -2,9 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Contact from './Contact'
 import Modal from './Modal'
-import { openModal, toggleContact } from '../store/actions/index'
+import { openModal, deleteContact } from '../store/actions/index'
 
-function ContactList({ onToggle, modalVisible, openModal, contacts }) {
+function ContactList({ onContactDelete, modalVisible, openModal, contacts }) {
     return (
         <>
             <button onClick={() => openModal()}>Add New</button>
@@ -20,7 +20,7 @@ function ContactList({ onToggle, modalVisible, openModal, contacts }) {
                                     <Contact 
                                     key={contact.id}
                                     contact={contact}
-                                    onToggle={onToggle}
+                                    deleteContact={onContactDelete}
                                     />
                             ))}
                 </tbody>
@@ -33,12 +33,13 @@ function mapStateToProps(state) {
     return {
         contacts: state.contacts,  
         modalVisible: !!state.formItem,
-        onToggle: toggleContact,
+        deleteContact,
     }
 };
 
 const mapDispatchToProps = {
     openModal: openModal,
+    
 }
 
 export default connect( mapStateToProps, mapDispatchToProps ) (ContactList)

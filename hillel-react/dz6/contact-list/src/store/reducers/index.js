@@ -2,7 +2,6 @@ import {
     ACTION_SET_CONTACTS,
     ACTION_OPEN_MODAL,
     ACTION_CLOSE_MODAL,
-    ACTION_TOGGLE,
     ACTION_CREATE_CONTACT,
     ACTION_CHANGE_FORM_ITEM,
     ACTION_DELETE,
@@ -52,16 +51,6 @@ export default function (state = initialState, {type, payload} ) {
                 ...state,
                 contacts: createContact(state.contacts, payload),
             };
-            
-        case ACTION_TOGGLE :
-            return {
-                ...state,
-                contacts: state.contacts.map((contact) => 
-                    contact.id !== payload
-                    ? contact
-                    : {...contact, isToggle: !contact.isToggle }
-                )
-            }
         
         default: 
             return state;

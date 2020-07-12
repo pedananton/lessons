@@ -14,8 +14,8 @@ export function deleteContact(id) {
  
 export const ACTION_CREATE_CONTACT = 'ACTION_CREATE_CONTACT';
 export function saveFormContact(changes) {
-    var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-        var valid = re.test(changes.phone);
+    const re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+        const valid = re.test(changes.phone);
         if (valid&&changes.name&&changes.surname !== "") {
             return function(dispatch) {
         
