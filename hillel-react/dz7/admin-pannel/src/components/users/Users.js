@@ -1,14 +1,23 @@
 import Paper from '@material-ui/core/Paper'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
+import List from './List'
+import {getUsers} from '../../store/actions/users'
 
+function Users({getUsers}) {
+    useEffect(() =>{
+        getUsers()
+    }, [getUsers])
 
-function Users() {
     return (
         <Paper>
-            Users
+            <List/>
         </Paper>
     )
 }
 
-export default Users
+const mapDispatchToProps = {
+    getUsers,
+}
+
+export default connect(null, mapDispatchToProps)(Users)

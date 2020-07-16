@@ -6,11 +6,9 @@ import {
   Route,
   Switch,
   Redirect,
-  Link,
 } from 'react-router-dom';
 import Home from './components/home/Home';
 import Container from '@material-ui/core/Container/Container';
-import Typography from '@material-ui/core/Typography';
 import Navigation from './components/common/Navigation';
 import Grid from '@material-ui/core/Grid';
 import Users from './components/users/Users'
