@@ -10,6 +10,10 @@ function List({users}) {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
+            <TableCell>Username</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Phone</TableCell>
+            <TableCell>ID</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
