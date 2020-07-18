@@ -4,7 +4,7 @@ import Contact from './Contact'
 import Modal from './Modal'
 import { openModal, deleteContact } from '../store/actions/index'
 
-function ContactList({ onContactDelete, modalVisible, openModal, contacts }) {
+function ContactList({ onContactDelete, deleteContact, modalVisible, openModal, contacts }) {
     return (
         <>
             <button onClick={() => openModal()}>Add New</button>
@@ -20,7 +20,7 @@ function ContactList({ onContactDelete, modalVisible, openModal, contacts }) {
                                     <Contact 
                                     key={contact.id}
                                     contact={contact}
-                                    deleteContact={onContactDelete}
+                                    onContactDelete={deleteContact}
                                     />
                             ))}
                 </tbody>
@@ -33,12 +33,12 @@ function mapStateToProps(state) {
     return {
         contacts: state.contacts,  
         modalVisible: !!state.formItem,
-        deleteContact,
     }
 };
 
 const mapDispatchToProps = {
-    openModal: openModal,
+    openModal,
+    deleteContact,
     
 }
 

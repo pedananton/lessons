@@ -23,11 +23,12 @@ function AlbumsList({ albums }) {
               <TableCell>ID</TableCell>
             </TableRow>
           </TableHead>
-          {/* <TableBody>
+          <TableBody>
+            <AlbumsListItem />
             {albums.map((album) => (
               <AlbumsListItem album={album} key={album.id} />
             ))}
-          </TableBody> */}
+          </TableBody>
         </Table>
       </TableContainer>
     </>
