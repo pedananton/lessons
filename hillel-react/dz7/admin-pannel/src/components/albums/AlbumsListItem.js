@@ -12,3 +12,9 @@ export default function AlbumsListItem({ album }) {
     </TableRow>
   );
 }
+
+/**
+ *
+ * не могу получить albums
+ * выдает ошибку TypeError: Cannot read property 'userId' of undefined
+ */
