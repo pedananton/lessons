@@ -27,7 +27,7 @@ export default function (state = initialState, { type, payload }) {
     case ACTION_OPEN_MODAL:
       return {
         ...state,
-        formItem: { name: "contact", surname: "contact", phone: "contact" },
+        formItem: { name: "name", surname: "surname", phone: "phone" },
       };
 
     case ACTION_CHANGE_FORM_ITEM:
