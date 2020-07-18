@@ -14,11 +14,20 @@ function Form({user}) {
 }
 
 const mapStateToProps = (state, props) => {
-    return{
-        user: state.users.items.find(
+    // eslint-disable-next-line
+    const user = props.match.params.id == 'new'
+        ? {
+            name: '',
+            username: '',
+            email: '',
+            phone: '',
+        }
+        : state.users.items.find(
             // eslint-disable-next-line
             (user) => user.id == props.match.params.id
-        ),
+        );
+    return{
+        user,
     }
 }
 

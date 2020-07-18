@@ -1,13 +1,13 @@
-import { SET_USERS } from "../actions/users";
+import { SET_ALBUMS } from "../actions/albums";
 
 const initialState = {
-  items: [],
+  albums: [],
 };
 
 export default function (state = initialState, { type, payload }) {
   switch (type) {
-    case SET_USERS:
-      return { ...state, items: payload };
+    case SET_ALBUMS:
+      return { ...state, albums: payload };
     default:
       return state;
   }

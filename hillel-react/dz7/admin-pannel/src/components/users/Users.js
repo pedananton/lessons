@@ -1,32 +1,36 @@
-import Paper from '@material-ui/core/Paper'
-import React, { useEffect } from 'react'
-import {connect} from 'react-redux'
-import List from './List'
-import {getUsers} from '../../store/actions/users'
-import { Switch, Route } from 'react-router-dom'
-import Form from './Form'
+import Paper from "@material-ui/core/Paper";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import List from "./List";
+import { getUsers } from "../../store/actions/users";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Form from "./Form";
 
-function Users({getUsers}) {
-    useEffect(() =>{
-        getUsers()
-    }, [getUsers])
+function Users({ getUsers }) {
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
 
-    return (
-        <Paper>
-            <Switch>
-                <Route path='/users/' exact>
-                    <List/>
-                </Route>
-                <Route path='/users/:id'>
-                    <Form/>
-                </Route>
-            </Switch>
-        </Paper>
-    )
+  const { path, url } = useRouteMatch();
+
+  console.log("match", path, url);
+
+  return (
+    <Paper>
+      <Switch>
+        <Route path={path + "/"} exact>
+          <List />
+        </Route>
+        <Route path={path + "/:id"}>
+          <Form />
+        </Route>
+      </Switch>
+    </Paper>
+  );
 }
 
 const mapDispatchToProps = {
-    getUsers,
-}
+  getUsers,
+};
 
-export default connect(null, mapDispatchToProps)(Users)
+export default connect(null, mapDispatchToProps)(Users);
