@@ -15,6 +15,6 @@ export default function AlbumsListItem({ album }) {
 
 /**
  *
- * не могу получить albums
+ * не могу получить album
  * выдает ошибку TypeError: Cannot read property 'userId' of undefined
  */
