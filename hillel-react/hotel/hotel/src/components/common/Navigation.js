@@ -27,8 +27,8 @@ function Navigation() {
         >
           Rooms
         </Button>
-        <Button color="inherit" component={NavLink} to="/clients">
-          Clients
+        <Button color="inherit" component={NavLink} to="/users">
+          Users
         </Button>
       </Toolbar>
     </AppBar>
