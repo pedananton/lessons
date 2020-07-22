@@ -1,9 +1,14 @@
 import React from "react";
 import { TableCell, TableRow } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 function ListItem({ user }) {
+  const history = useHistory();
+  function onRowClick() {
+    history.push("/users/" + user.id);
+  }
   return (
-    <TableRow>
+    <TableRow onClick={onRowClick}>
       <TableCell component="th" scope="row">
         {user.name}
       </TableCell>

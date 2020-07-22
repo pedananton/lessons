@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import List from "./List";
 import { getUsers } from "../../store/actions/users";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Form from "./Form";
 
 function Users({ getUsers }) {
   useEffect(() => {
     getUsers();
   }, [getUsers]);
 
-  const { path } = useRouteMatch();
+  const { path, url } = useRouteMatch();
+  
   return (
     <Paper>
       <Switch>
@@ -18,7 +20,9 @@ function Users({ getUsers }) {
           <List />
           Users
         </Route>
-        <Route path={path + "/:id"}></Route>
+        <Route path={path + "/:id"}>
+          <Form/>
+        </Route>
       </Switch>
     </Paper>
   );
