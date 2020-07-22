@@ -1,7 +1,7 @@
 import React from "react";
 import { TableCell, TableRow } from "@material-ui/core";
 
-function ListItem({user}) {
+function ListItem({ user }) {
   return (
     <TableRow>
       <TableCell component="th" scope="row">

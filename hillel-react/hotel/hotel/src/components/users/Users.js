@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import List from "./List";
+import { getUsers } from "../../store/actions/users";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
-function Users() {
+function Users({ getUsers }) {
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
+
   const { path } = useRouteMatch();
   return (
     <Paper>
       <Switch>
         <Route path={path + "/"} exact>
           <List />
+          Users
         </Route>
         <Route path={path + "/:id"}></Route>
       </Switch>
@@ -18,4 +24,8 @@ function Users() {
   );
 }
 
-export default connect()(Users);
+const mapDispatchToProps = {
+  getUsers,
+};
+
+export default connect(null, mapDispatchToProps)(Users);

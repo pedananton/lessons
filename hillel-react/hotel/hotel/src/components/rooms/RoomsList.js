@@ -9,9 +9,9 @@ import {
   TableHead,
   Paper,
 } from "@material-ui/core";
-import ListItem from "./ListItem";
+import RoomsListItem from "./RoomsListItem";
 
-function List({ users }) {
+function RoomsList({ rooms }) {
   return (
     <>
       <TableContainer component={Paper}>
@@ -19,15 +19,12 @@ function List({ users }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Username</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone</TableCell>
               <TableCell>ID</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
-              <ListItem user={user} key={user.id} />
+            {rooms.map((room) => (
+              <RoomsListItem room={room} key={room.id} />
             ))}
           </TableBody>
         </Table>
@@ -36,8 +33,8 @@ function List({ users }) {
   );
 }
 
-const mapStateToProps = ({ users: { items } }) => ({
-  users: items,
+const mapStateToProps = ({ rooms: { items } }) => ({
+  rooms: items,
 });
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps)(RoomsList);
