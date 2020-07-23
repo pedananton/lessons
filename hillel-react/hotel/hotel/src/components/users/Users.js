@@ -12,7 +12,7 @@ function Users({ getUsers }) {
   }, [getUsers]);
 
   const { path, url } = useRouteMatch();
-  
+
   return (
     <Paper>
       <Switch>
@@ -20,7 +20,7 @@ function Users({ getUsers }) {
           <List />
         </Route>
         <Route path={path + "/:id"}>
-          <Form/>
+          <Form />
         </Route>
       </Switch>
     </Paper>

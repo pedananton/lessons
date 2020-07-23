@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 
 function Form({ user }) {
-  console.log("user", user);
   return (
     <>
       <TableContainer component={Paper}>
@@ -26,11 +25,17 @@ function Form({ user }) {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell component="th" scope="row">
-                {user.name}
-              </TableCell>
-              <TableCell align="right">{user.email}</TableCell>
-              <TableCell align="right">{user.phone}</TableCell>
+              {user ? (
+                <>
+                  <TableCell component="th" scope="row">
+                    {user.name}
+                  </TableCell>
+                  <TableCell align="right">{user.email}</TableCell>
+                  <TableCell align="right">{user.phone}</TableCell>
+                </>
+              ) : (
+                <TableCell>Loading</TableCell>
+              )}
             </TableRow>
           </TableBody>
         </Table>
