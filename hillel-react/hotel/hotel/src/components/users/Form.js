@@ -2,17 +2,17 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableRow,
-    TableHead,
-    Paper,
-  } from "@material-ui/core";
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  TableHead,
+  Paper,
+} from "@material-ui/core";
 
 function Form({ user }) {
-    console.log('user', user)
+  console.log("user", user);
   return (
     <>
       <TableContainer component={Paper}>
@@ -20,14 +20,18 @@ function Form({ user }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Username</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>ID</TableCell>
+              <TableCell align="right">Email</TableCell>
+              <TableCell align="right">Phone</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-          
+            <TableRow>
+              <TableCell component="th" scope="row">
+                {user.name}
+              </TableCell>
+              <TableCell align="right">{user.email}</TableCell>
+              <TableCell align="right">{user.phone}</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
