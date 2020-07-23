@@ -1,11 +1,13 @@
 import React from "react";
 import { TableCell, TableRow } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 function ListItem({ user }) {
   const history = useHistory();
+  const { path, url } = useRouteMatch();
+
   function onRowClick() {
-    history.push("/users/" + user.id);
+    history.push(url + "/" + user.id);
   }
   return (
     <TableRow onClick={onRowClick}>

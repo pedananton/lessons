@@ -18,7 +18,6 @@ function Users({ getUsers }) {
       <Switch>
         <Route path={path + "/"} exact>
           <List />
-          Users
         </Route>
         <Route path={path + "/:id"}>
           <Form/>

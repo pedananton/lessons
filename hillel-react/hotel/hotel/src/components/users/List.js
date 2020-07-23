@@ -10,8 +10,10 @@ import {
   Paper,
 } from "@material-ui/core";
 import ListItem from "./ListItem";
+import { Link, useRouteMatch } from "react-router-dom";
 
 function List({ users }) {
+  const { path, url } = useRouteMatch();
   return (
     <>
       <TableContainer component={Paper}>
@@ -32,6 +34,7 @@ function List({ users }) {
           </TableBody>
         </Table>
       </TableContainer>
+      <Link to={url+'/new'} >Add New</Link>
     </>
   );
 }
