@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import List from "./List";
 import { getUsers } from "../../store/actions/users";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Form from "./Form";
+import UserForm from "./UserForm";
 
 function Users({ getUsers }) {
   useEffect(() => {
@@ -20,7 +20,7 @@ function Users({ getUsers }) {
           <List />
         </Route>
         <Route path={path + "/:id"}>
-          <Form />
+          <UserForm />
         </Route>
       </Switch>
     </Paper>

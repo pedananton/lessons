@@ -10,8 +10,12 @@ import {
   TableHead,
   Paper,
 } from "@material-ui/core";
+import { Formik, Form, Field } from "formik";
 
-function Form({ user }) {
+function UserForm({ user }) {
+  function onFormSubmit(data) {
+    console.log("data", data);
+  }
   return (
     <>
       <TableContainer component={Paper}>
@@ -23,9 +27,8 @@ function Form({ user }) {
               <TableCell align="right">Phone</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            <TableRow>
-              {user ? (
+          <TableBody></TableBody>
+          {/* {user ? (
                 <>
                   <TableCell component="th" scope="row">
                     {user.name}
@@ -35,11 +38,14 @@ function Form({ user }) {
                 </>
               ) : (
                 <TableCell>Loading</TableCell>
-              )}
-            </TableRow>
-          </TableBody>
+              )} */}
         </Table>
       </TableContainer>
+      <Formik initialValues={user} onSubmit={onFormSubmit}>
+        <Form>
+          <Field name="name" type="text" />
+        </Form>
+      </Formik>
     </>
   );
 }
@@ -60,4 +66,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(Form));
+export default withRouter(connect(mapStateToProps)(UserForm));
