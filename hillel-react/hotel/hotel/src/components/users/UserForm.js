@@ -16,6 +16,16 @@ function UserForm({ user }) {
   function onFormSubmit(data) {
     console.log("data", data);
   }
+  function validate(values) {
+    const errors = {};
+    console.log("validate", values);
+
+    if (isNaN(values.phone) || " ") {
+      errors.phone = "Phone must be number";
+    }
+    return errors;
+  }
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -23,27 +33,26 @@ function UserForm({ user }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Phone</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Phone</TableCell>
             </TableRow>
           </TableHead>
           <TableBody></TableBody>
-          {/* {user ? (
-                <>
-                  <TableCell component="th" scope="row">
-                    {user.name}
-                  </TableCell>
-                  <TableCell align="right">{user.email}</TableCell>
-                  <TableCell align="right">{user.phone}</TableCell>
-                </>
-              ) : (
-                <TableCell>Loading</TableCell>
-              )} */}
         </Table>
       </TableContainer>
-      <Formik initialValues={user} onSubmit={onFormSubmit}>
+      <Formik initialValues={user} onSubmit={onFormSubmit} validate={validate}>
         <Form>
           <Field name="name" type="text" />
+          <Field name="email" type="email" />
+          <Field name="phone" type="phone">
+            {({ field, meta }) => (
+              <div>
+                <input {...field} />
+                {meta.error ? meta.error : null}
+              </div>
+            )}
+          </Field>
+          <button type="submit">Save</button>
         </Form>
       </Formik>
     </>
