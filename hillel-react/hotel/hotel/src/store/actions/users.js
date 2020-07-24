@@ -21,3 +21,11 @@ export function saveFormUser(changes) {
     );
   };
 }
+
+export const NEW_USER_FORM = "NEW_USER_FORM";
+export function newUserForm(name) {
+  return {
+    type: NEW_USER_FORM,
+    payload: name,
+  }
+}

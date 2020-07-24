@@ -12,7 +12,7 @@ import {
 import ListItem from "./ListItem";
 import { Link, useRouteMatch } from "react-router-dom";
 
-function List({ users }) {
+function List({ users, user, onSave }) {
   const { url } = useRouteMatch();
   return (
     <>
@@ -24,7 +24,6 @@ function List({ users }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Username</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Phone</TableCell>
               <TableCell>ID</TableCell>

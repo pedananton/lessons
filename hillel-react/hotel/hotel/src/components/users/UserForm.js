@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {
@@ -11,6 +11,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
+import { saveFormUser, newUserForm } from "../../store/actions/users";
 
 function UserForm({ user, onSave }) {
   function onFormSubmit(data) {
@@ -20,7 +21,7 @@ function UserForm({ user, onSave }) {
     const errors = {};
     console.log("validate", values);
 
-    if (isNaN(values.phone) || " ") {
+    if (isNaN(values.phone)) {
       errors.phone = "Phone must be number";
     }
     return errors;
@@ -52,7 +53,9 @@ function UserForm({ user, onSave }) {
               </div>
             )}
           </Field>
-          <button type="submit">Save</button>
+          <button type="submit" onClick={() => onSave(user)}>
+            Save
+          </button>
         </Form>
       </Formik>
     </>
@@ -63,11 +66,7 @@ const mapStateToProps = (state, props) => {
   const user =
     // eslint-disable-next-line
     props.match.params.id == "new"
-      ? {
-          name: "",
-          phone: "",
-          email: "",
-        }
+      ? newUserForm()
       : // eslint-disable-next-line
         state.users.users.find((user) => user.id == props.match.params.id);
   return {
@@ -75,4 +74,10 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(UserForm));
+const mapDispatchToProps = {
+  onSave: saveFormUser,
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(UserForm)
+);
