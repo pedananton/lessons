@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 
-function UserForm({ user }) {
+function UserForm({ user, onSave }) {
   function onFormSubmit(data) {
     console.log("data", data);
   }
@@ -69,7 +69,7 @@ const mapStateToProps = (state, props) => {
           email: "",
         }
       : // eslint-disable-next-line
-        state.users.items.find((user) => user.id == props.match.params.id);
+        state.users.users.find((user) => user.id == props.match.params.id);
   return {
     user,
   };

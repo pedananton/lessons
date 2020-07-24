@@ -1,13 +1,23 @@
-import { SET_USERS } from "../actions/users";
+import { SET_USERS, CREATE_USER } from "../actions/users";
 
 const initialState = {
-  items: [],
+  users: [],
 };
+
+function createUser(users, user) {
+  return [...users, user];
+}
 
 export default function (state = initialState, { type, payload }) {
   switch (type) {
     case SET_USERS:
-      return { ...state, items: payload };
+      return { ...state, users: payload };
+
+    case CREATE_USER:
+      return {
+        ...state,
+        users: createUser(state.users, payload),
+      };
     default:
       return state;
   }

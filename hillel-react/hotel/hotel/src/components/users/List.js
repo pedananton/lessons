@@ -13,9 +13,12 @@ import ListItem from "./ListItem";
 import { Link, useRouteMatch } from "react-router-dom";
 
 function List({ users }) {
-  const { path, url } = useRouteMatch();
+  const { url } = useRouteMatch();
   return (
     <>
+      <button type="submit">
+        <Link to={url + "/new"}>Add New</Link>
+      </button>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
@@ -34,13 +37,12 @@ function List({ users }) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Link to={url+'/new'} >Add New</Link>
     </>
   );
 }
 
-const mapStateToProps = ({ users: { items } }) => ({
-  users: items,
+const mapStateToProps = ({ users: { users } }) => ({
+  users,
 });
 
 export default connect(mapStateToProps)(List);
