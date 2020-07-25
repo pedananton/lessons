@@ -11,11 +11,13 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
+import { saveFormUser } from "../../store/actions/users";
 
 function UserForm({ user, onSave }) {
   function onFormSubmit(data) {
     console.log("data", data);
   }
+
   function validate(values) {
     const errors = {};
     console.log("validate", values);
@@ -77,4 +79,10 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(UserForm));
+const mapDispatchToProps = {
+  onSave: saveFormUser,
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(UserForm)
+);

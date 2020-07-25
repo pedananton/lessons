@@ -11,9 +11,9 @@ export const getUsers = () => (dispatch) => {
 };
 
 export const CREATE_USER = "CREATE_USER";
-export function saveFormUser(changes) {
+export function saveFormUser(data) {
   return function (dispatch) {
-    users.post("", changes).then((resp) =>
+    users.post("", data).then((resp) =>
       dispatch({
         type: CREATE_USER,
         payload: resp.data,
