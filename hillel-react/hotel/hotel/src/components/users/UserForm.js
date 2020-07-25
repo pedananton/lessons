@@ -15,12 +15,11 @@ import { saveFormUser } from "../../store/actions/users";
 
 function UserForm({ user, onSave }) {
   function onFormSubmit(data) {
-    console.log("data", data);
+    onSave(data);
   }
 
   function validate(values) {
     const errors = {};
-    console.log("validate", values);
 
     if (isNaN(values.phone)) {
       errors.phone = "Phone must be number";
@@ -54,9 +53,7 @@ function UserForm({ user, onSave }) {
               </div>
             )}
           </Field>
-          <button type="submit" onClick={() => onSave(user)}>
-            Save
-          </button>
+          <button type="submit">Save</button>
         </Form>
       </Formik>
     </>
