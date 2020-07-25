@@ -4,7 +4,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 function ListItem({ user }) {
   const history = useHistory();
-  const { path, url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   function onRowClick() {
     history.push(url + "/" + user.id);

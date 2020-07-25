@@ -11,7 +11,6 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import { saveFormUser, newUserForm } from "../../store/actions/users";
 
 function UserForm({ user, onSave }) {
   function onFormSubmit(data) {
@@ -66,7 +65,11 @@ const mapStateToProps = (state, props) => {
   const user =
     // eslint-disable-next-line
     props.match.params.id == "new"
-      ? newUserForm()
+      ? {
+          name: "",
+          email: "",
+          phone: "",
+        }
       : // eslint-disable-next-line
         state.users.users.find((user) => user.id == props.match.params.id);
   return {
@@ -74,10 +77,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = {
-  onSave: saveFormUser,
-};
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(UserForm)
-);
+export default withRouter(connect(mapStateToProps)(UserForm));

@@ -11,7 +11,7 @@ function Users({ getUsers }) {
     getUsers();
   }, [getUsers]);
 
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
 
   return (
     <Paper>

@@ -1,4 +1,4 @@
-import { SET_USERS, CREATE_USER, NEW_USER_FORM } from "../actions/users";
+import { SET_USERS, CREATE_USER } from "../actions/users";
 
 const initialState = {
   users: [],
@@ -18,12 +18,6 @@ export default function (state = initialState, { type, payload }) {
       return {
         ...state,
         users: createUser(state.users, payload),
-      };
-
-    case NEW_USER_FORM:
-      return {
-        ...state,
-        formItem: { name: "name", surname: "surname", phone: "phone" },
       };
     default:
       return state;
