@@ -9,6 +9,7 @@ function ListItem({ user }) {
   function onRowClick() {
     history.push(url + "/" + user.id);
   }
+
   return (
     <>
       <TableRow onClick={onRowClick}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Table,
@@ -14,6 +14,8 @@ import { Formik, Form, Field } from "formik";
 import { saveFormUser, deleteFormUser } from "../../store/actions/users";
 
 function UserForm({ user, onSave, onUserDelete }) {
+  const history = useHistory();
+
   function onFormSubmit(data) {
     onSave(data);
   }
@@ -25,6 +27,10 @@ function UserForm({ user, onSave, onUserDelete }) {
       errors.phone = "Phone must be number";
     }
     return errors;
+  }
+
+  function onDeleteClick() {
+    history.push("/");
   }
 
   return (
@@ -54,7 +60,12 @@ function UserForm({ user, onSave, onUserDelete }) {
             )}
           </Field>
           <button type="submit">Save</button>
-          <button type='button' onClick={()=> onUserDelete(user.id)} >Delete</button>
+          <button
+            type="button"
+            onClick={() => onUserDelete(user.id, onDeleteClick())}
+          >
+            Delete
+          </button>
         </Form>
       </Formik>
     </>
