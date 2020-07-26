@@ -21,3 +21,15 @@ export function saveFormUser(data) {
     );
   };
 }
+
+export const DELETE_USER = "DELETE_USER";
+export function deleteFormUser(id) {
+  return function (dispatch) {
+    users.delete(id).then(() =>
+      dispatch({
+        type: DELETE_USER,
+        payload: id,
+      })
+    );
+  };
+}

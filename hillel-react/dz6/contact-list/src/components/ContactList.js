@@ -5,7 +5,6 @@ import Modal from "./Modal";
 import { openModal, deleteContact } from "../store/actions/index";
 
 function ContactList({
-  onContactDelete,
   deleteContact,
   modalVisible,
   openModal,

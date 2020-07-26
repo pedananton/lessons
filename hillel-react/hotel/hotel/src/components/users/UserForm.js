@@ -11,9 +11,9 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import { saveFormUser } from "../../store/actions/users";
+import { saveFormUser, deleteFormUser } from "../../store/actions/users";
 
-function UserForm({ user, onSave }) {
+function UserForm({ user, onSave, onUserDelete }) {
   function onFormSubmit(data) {
     onSave(data);
   }
@@ -54,6 +54,7 @@ function UserForm({ user, onSave }) {
             )}
           </Field>
           <button type="submit">Save</button>
+          <button type='button' onClick={()=> onUserDelete(user.id)} >Delete</button>
         </Form>
       </Formik>
     </>
@@ -78,6 +79,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = {
   onSave: saveFormUser,
+  onUserDelete: deleteFormUser,
 };
 
 export default withRouter(

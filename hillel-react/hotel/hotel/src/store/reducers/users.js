@@ -1,4 +1,4 @@
-import { SET_USERS, CREATE_USER } from "../actions/users";
+import { SET_USERS, CREATE_USER, DELETE_USER } from "../actions/users";
 
 const initialState = {
   users: [],
@@ -18,6 +18,12 @@ export default function (state = initialState, { type, payload }) {
       return {
         ...state,
         users: createUser(state.users, payload),
+      };
+
+    case DELETE_USER:
+      return {
+        ...state,
+        users: state.users.filter((user) => user.id !== payload),
       };
     default:
       return state;

@@ -10,15 +10,17 @@ function ListItem({ user }) {
     history.push(url + "/" + user.id);
   }
   return (
-    <TableRow onClick={onRowClick}>
-      <TableCell component="th" scope="row">
-        {user.name}
-      </TableCell>
-      <TableCell align="right">{user.username}</TableCell>
-      <TableCell align="right">{user.email}</TableCell>
-      <TableCell align="right">{user.phone}</TableCell>
-      <TableCell align="right">{user.id}</TableCell>
-    </TableRow>
+    <>
+      <TableRow onClick={onRowClick}>
+        <TableCell component="th" scope="row">
+          {user.name}
+        </TableCell>
+        <TableCell align="right">{user.username}</TableCell>
+        <TableCell align="right">{user.email}</TableCell>
+        <TableCell align="right">{user.phone}</TableCell>
+        <TableCell align="right">{user.id}</TableCell>
+      </TableRow>
+    </>
   );
 }
 
