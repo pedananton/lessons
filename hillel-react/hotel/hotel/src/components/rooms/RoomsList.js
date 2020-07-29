@@ -12,6 +12,7 @@ import {
 import RoomsListItem from "./RoomsListItem";
 
 function RoomsList({ rooms }) {
+  
   return (
     <>
       <TableContainer component={Paper}>
@@ -19,7 +20,7 @@ function RoomsList({ rooms }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>ID</TableCell>
+              <TableCell align='right' >ID</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
