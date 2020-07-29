@@ -5,11 +5,16 @@ import List from "./List";
 import { getUsers } from "../../store/actions/users";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import UserForm from "./UserForm";
+import { getRooms } from "../../store/actions/rooms";
 
-function Users({ getUsers }) {
+function Users({ getUsers, getRooms }) {
   useEffect(() => {
     getUsers();
   }, [getUsers]);
+
+  useEffect(() => {
+    getRooms();
+  }, [getRooms]);
 
   const { path } = useRouteMatch();
 
@@ -29,6 +34,7 @@ function Users({ getUsers }) {
 
 const mapDispatchToProps = {
   getUsers,
+  getRooms,
 };
 
 export default connect(null, mapDispatchToProps)(Users);

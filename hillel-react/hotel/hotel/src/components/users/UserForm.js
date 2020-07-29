@@ -13,7 +13,7 @@ import {
 import { Formik, Form, Field } from "formik";
 import { saveFormUser, deleteFormUser } from "../../store/actions/users";
 
-function UserForm({ user, onSave, onUserDelete }) {
+function UserForm({ user, onSave, onUserDelete, rooms }) {
   const history = useHistory();
 
   function onFormSubmit(data) {
@@ -49,15 +49,20 @@ function UserForm({ user, onSave, onUserDelete }) {
       </TableContainer>
       <Formik initialValues={user} onSubmit={onFormSubmit} validate={validate}>
         <Form>
-          <Field name="name" type="text" />
-          <Field name="email" type="email" />
-          <Field name="phone" type="phone">
+          <Field name="name" type="text" placeholder="name" />
+          <Field name="email" type="email" placeholder="email" />
+          <Field name="phone" type="phone" >
             {({ field, meta }) => (
               <div>
-                <input {...field} />
+                <input {...field} placeholder="+38"/>
                 {meta.error ? meta.error : null}
               </div>
             )}
+          </Field>
+          <Field name="roomId" as="select" placeholder="Room number">
+            {rooms.map((room) => (
+              <option key={room.id}>{room.Color}</option>
+            ))}
           </Field>
           <button type="submit">Save</button>
           <button
@@ -80,11 +85,13 @@ const mapStateToProps = (state, props) => {
           name: "",
           email: "",
           phone: "",
+          roomeId: "",
         }
       : // eslint-disable-next-line
         state.users.users.find((user) => user.id == props.match.params.id);
   return {
     user,
+    rooms: state.rooms.items,
   };
 };
 
