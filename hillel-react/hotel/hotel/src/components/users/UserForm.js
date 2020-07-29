@@ -61,7 +61,7 @@ function UserForm({ user, onSave, onUserDelete, rooms }) {
           </Field>
           <Field name="roomId" as="select" placeholder="Room number">
             {rooms.map((room) => (
-              <option value="{room.id}" key={room.id}>
+              <option value={room.id} key={room.id}>
                 {room.Color}
               </option>
             ))}
