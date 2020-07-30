@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import RoomsList from "./RoomsList";
 import { getRooms } from "../../store/actions/rooms";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Filters from "./Filters";
 
 function Rooms({ getRooms }) {
   useEffect(() => {
@@ -16,8 +17,8 @@ function Rooms({ getRooms }) {
     <Paper>
       <Switch>
         <Route path={path + "/"} exact>
+          <Filters />
           <RoomsList />
-          Rooms
         </Route>
         <Route path={path + "/:id"}></Route>
       </Switch>

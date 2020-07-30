@@ -16,9 +16,9 @@ function ListItem({ user }) {
         <TableCell component="th" scope="row">
           {user.name}
         </TableCell>
-        <TableCell align="right">{user.username}</TableCell>
-        <TableCell align="right">{user.email}</TableCell>
-        <TableCell align="right">{user.phone}</TableCell>
+        <TableCell>{user.username}</TableCell>
+        <TableCell align="left">{user.email}</TableCell>
+        <TableCell align="left">{user.phone}</TableCell>
         <TableCell align="right">{user.id}</TableCell>
       </TableRow>
     </>

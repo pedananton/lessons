@@ -24,9 +24,9 @@ function List({ users, roomId }) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>ID</TableCell>
+              <TableCell align='right'>Email</TableCell>
+              <TableCell align='right' >Phone</TableCell>
+              <TableCell align='right' >ID</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
