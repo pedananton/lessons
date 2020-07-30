@@ -33,27 +33,18 @@ function RoomsList({ rooms }) {
   );
 }
 
-// const mapStateToProps = ({ rooms: { items } }) => ({
-//   rooms: items,
-// });
-
 function mapStateToProps(state) {
   const filter = state.filters.filter;
-  const users = state.users.users; 
-  return { rooms: state.rooms.items };
+  return {
+    rooms:
+      filter === "all"
+        ? state.rooms.items
+        : state.rooms.items.filter((user) => {
+            if (filter === "occupied" && user.roomId) return true;
+            if (filter === "free" && !user.roomId) return true;
+            return false;
+          }),
+  };
 }
-
-// const mapStateToProps = ({users: {users}, filter: { filter }, rooms: { items } }) => ({
-//   filter: filter,
-//   users: users,
-//   rooms:
-//     filter === "all"
-//       ? items
-//       : items.filter((item) => {
-//           if (filter === "occupied" && users.roomId) return true;
-//           if (filter === "free" && !users.roomId) return true;
-//           return false;
-//         }),
-// });
 
 export default connect(mapStateToProps)(RoomsList);
