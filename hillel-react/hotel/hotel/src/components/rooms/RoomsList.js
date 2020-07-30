@@ -38,6 +38,8 @@ function RoomsList({ rooms }) {
 // });
 
 function mapStateToProps(state) {
+  const filter = state.filters.filter;
+  const users = state.users.users; 
   return { rooms: state.rooms.items };
 }
 
