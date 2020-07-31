@@ -6,8 +6,8 @@ function Filters({ allRoomsCount, setFilter }) {
   return (
     <div>
       <button onClick={() => setFilter("all")}>Все комнаты ({allRoomsCount})</button>
-      <button onClick={() => setFilter("occupied")}>Заняты</button>
-      <button onClick={() => setFilter("free")}>Свободны</button>
+      <button onClick={() => setFilter("occupied")}>Заняты </button>
+      <button onClick={() => setFilter("free")}>Свободны </button>
     </div>
   );
 }

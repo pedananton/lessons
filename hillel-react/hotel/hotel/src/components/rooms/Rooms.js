@@ -3,13 +3,18 @@ import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import RoomsList from "./RoomsList";
 import { getRooms } from "../../store/actions/rooms";
+import {getUsers} from '../../store/actions/users'
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Filters from "./Filters";
 
-function Rooms({ getRooms }) {
+function Rooms({ getRooms, getUsers }) {
   useEffect(() => {
     getRooms();
   }, [getRooms]);
+
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
 
   const { path } = useRouteMatch();
 
@@ -28,6 +33,7 @@ function Rooms({ getRooms }) {
 
 const mapDispatchToProps = {
   getRooms,
+  getUsers,
 };
 
 export default connect(null, mapDispatchToProps)(Rooms);
