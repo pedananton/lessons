@@ -36,7 +36,14 @@ function RoomsList({ rooms }) {
 function mapStateToProps(state) {
   const filter = state.filters.filter;
   const user = {};
-  console.log('RoomsList', )
+  console.log(
+    "RoomsList",
+    state.rooms.items.filter((room) => {
+      if (filter === "occupied" && room.id === user.roomId) return true;
+      if (filter === "free" && room.id !== user.roomId) return true;
+      return false;
+    })
+  );
   return {
     rooms:
       filter === "all"
