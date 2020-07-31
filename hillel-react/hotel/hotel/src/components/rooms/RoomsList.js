@@ -39,10 +39,9 @@ function mapStateToProps(state) {
     rooms:
       filter === "all"
         ? state.rooms.items
-        : state.users.users.filter((user, room) => {
+        : state.rooms.items.filter((user, room) => {
             if (filter === "occupied" && room.id === user.roomId) return true;
             if (filter === "free" && room.id !== user.roomId) return true;
-
             return false;
           }),
   };
