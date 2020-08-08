@@ -14,7 +14,6 @@ function Filters({ allRoomsCount, setFilter }) {
 
 function mapStateToProps(state) {
   return {
-    filter: state.filters.filter,
     allRoomsCount: state.rooms.items.length,
   };
 }

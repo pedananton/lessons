@@ -42,12 +42,12 @@ function mapStateToProps(state) {
         : state.rooms.items.filter((room) => {
             if (
               filter === "occupied" &&
-                state.users.users.filter((user) => user.roomId === room.id)
+              state.users.users.find((user) => user.roomId === room.id)
             )
               return true;
             if (
               filter === "free" &&
-              !state.users.users.filter((user) => user.roomId === room.id)
+              !state.users.users.find((user) => user.roomId === room.id)
             )
               return true;
             return false;
