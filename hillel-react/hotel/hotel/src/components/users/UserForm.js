@@ -11,7 +11,11 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import { saveFormUser, deleteFormUser } from "../../store/actions/users";
+import {
+  saveFormUser,
+  deleteFormUser,
+  setDate,
+} from "../../store/actions/users";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -114,10 +118,13 @@ const mapStateToProps = (state, props) => {
     handleChange,
   };
 };
-
+/**
+ * время диспатчит раньше user исправить корректно
+ */
 const mapDispatchToProps = {
   onSave: saveFormUser,
   onUserDelete: deleteFormUser,
+  handleChange: setDate,
 };
 
 export default withRouter(

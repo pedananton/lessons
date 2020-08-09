@@ -21,9 +21,7 @@ export function saveFormUser(data) {
     );
   };
 }
-/**
- * сделать reducer setDate и далее
- */
+
 export const SET_DATE = "SET_DATE";
 export function setDate(data) {
   return {
