@@ -30,12 +30,6 @@ export default function (state = initialState, { type, payload }) {
         users: state.users.filter((user) => user.id !== payload),
       };
 
-    // case SET_DATE:
-    //   return {
-    //     ...state,
-    //     users: state.users.filter((user) => user.id, payload),
-    //   };
-
     default:
       return state;
   }

@@ -22,14 +22,6 @@ export function saveFormUser(data) {
   };
 }
 
-// export const SET_DATE = "SET_DATE";
-// export function setDate(data) {
-//   return {
-//     type: SET_DATE,
-//     payload: data,
-//   };
-// }
-
 export const DELETE_USER = "DELETE_USER";
 export function deleteFormUser(id) {
   return function (dispatch) {

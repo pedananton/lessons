@@ -12,7 +12,7 @@ import {
 import ListItem from "./ListItem";
 import { Link, useRouteMatch } from "react-router-dom";
 
-function List({ users, roomId }) {
+function List({ users, roomId, startDate }) {
   const { url } = useRouteMatch();
   return (
     <>
@@ -35,6 +35,7 @@ function List({ users, roomId }) {
                 user={user}
                 key={user.id}
                 roomId={roomId}
+                //startDate={startDate}
               />
             ))}
           </TableBody>
@@ -47,6 +48,7 @@ function List({ users, roomId }) {
 const mapStateToProps = ({ rooms: { items }, users: { users } }) => ({
   users,
   roomId: items.id,
+  //startDate: users.startDate,
 });
 
 export default connect(mapStateToProps)(List);
