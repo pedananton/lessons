@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { saveFormUser, deleteFormUser } from "../../store/actions/users";
+import Dates from "./Dates";
 
 function UserForm({ user, onSave, onUserDelete, rooms }) {
   const history = useHistory();
@@ -66,9 +67,7 @@ function UserForm({ user, onSave, onUserDelete, rooms }) {
               </option>
             ))}
           </Field>
-
-          <DatePicker />
-
+          <Dates />
           <button type="submit">Save</button>
           <button
             type="button"
