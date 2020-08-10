@@ -12,15 +12,8 @@ import {
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
 import { saveFormUser, deleteFormUser } from "../../store/actions/users";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
-function UserForm({
-  user,
-  onSave,
-  onUserDelete,
-  rooms,
-}) {
+function UserForm({ user, onSave, onUserDelete, rooms }) {
   const history = useHistory();
 
   function onFormSubmit(data) {
@@ -74,7 +67,7 @@ function UserForm({
             ))}
           </Field>
 
-          <DatePicker/>
+          <DatePicker />
 
           <button type="submit">Save</button>
           <button
