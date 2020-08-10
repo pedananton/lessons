@@ -11,11 +11,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import { Formik, Form, Field } from "formik";
-import {
-  saveFormUser,
-  deleteFormUser,
-  setDate,
-} from "../../store/actions/users";
+import { saveFormUser, deleteFormUser } from "../../store/actions/users";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -24,8 +20,6 @@ function UserForm({
   onSave,
   onUserDelete,
   rooms,
-  startDate,
-  handleChange,
 }) {
   const history = useHistory();
 
@@ -80,7 +74,7 @@ function UserForm({
             ))}
           </Field>
 
-          <DatePicker selected={startDate} onChange={handleChange} />
+          <DatePicker/>
 
           <button type="submit">Save</button>
           <button
@@ -96,10 +90,6 @@ function UserForm({
 }
 
 const mapStateToProps = (state, props) => {
-  let startDate = new Date();
-  const handleChange = (date) => {
-    startDate = date;
-  };
   const user =
     // eslint-disable-next-line
     props.match.params.id == "new"
@@ -114,17 +104,12 @@ const mapStateToProps = (state, props) => {
   return {
     user,
     rooms: state.rooms.items,
-    startDate,
-    handleChange,
   };
 };
-/**
- * время диспатчит раньше user исправить корректно
- */
+
 const mapDispatchToProps = {
   onSave: saveFormUser,
   onUserDelete: deleteFormUser,
-  handleChange: setDate,
 };
 
 export default withRouter(
