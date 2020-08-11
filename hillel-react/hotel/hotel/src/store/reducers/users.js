@@ -2,11 +2,13 @@ import {
   SET_USERS,
   CREATE_USER,
   DELETE_USER,
+  SET_DATE,
 } from "../actions/users";
 
 const initialState = {
   users: [],
   formItem: null,
+  date: new Date(),
 };
 
 function createUser(users, user) {
@@ -15,6 +17,9 @@ function createUser(users, user) {
 
 export default function (state = initialState, { type, payload }) {
   switch (type) {
+    case SET_DATE:
+      return { ...state, date: payload };
+
     case SET_USERS:
       return { ...state, users: payload };
 

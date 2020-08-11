@@ -14,6 +14,7 @@ import { Formik, Form, Field } from "formik";
 import {
   saveFormUser,
   deleteFormUser,
+  setDate,
 } from "../../store/actions/users";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,8 +24,10 @@ function UserForm({
   onSave,
   onUserDelete,
   rooms,
-  date,
-  handleChange,
+  setStartDate,
+  startDate,
+  setEndDate,
+  endDate,
 }) {
   const history = useHistory();
 
@@ -79,8 +82,22 @@ function UserForm({
             ))}
           </Field>
 
-          <DatePicker selected={date} onChange={handleChange} />
-
+          <DatePicker
+            selected={startDate}
+            onChange={setStartDate}
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+          />
+          <DatePicker
+            selected={endDate}
+            onChange={setEndDate}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+          />
+          {console.log("selected", startDate)}
           <button type="submit">Save</button>
           <button
             type="button"
@@ -95,13 +112,10 @@ function UserForm({
 }
 
 const mapStateToProps = (state, props) => {
-  const handleChange = (newDate) => {
-    date = newDate;
-  };
-  let date = new Date();
-  /** реализ state для date
-   * 
-   */
+  let startDate = state.users.date;
+  let endDate = state.users.date;
+
+  //console.log('date', startDate)
   const user =
     // eslint-disable-next-line
     props.match.params.id == "new"
@@ -116,14 +130,16 @@ const mapStateToProps = (state, props) => {
   return {
     user,
     rooms: state.rooms.items,
-    date,
-    handleChange,
+    startDate,
+    endDate,
   };
 };
 
 const mapDispatchToProps = {
   onSave: saveFormUser,
   onUserDelete: deleteFormUser,
+  setStartDate: setDate,
+  setEndDate: setDate,
 };
 
 export default withRouter(

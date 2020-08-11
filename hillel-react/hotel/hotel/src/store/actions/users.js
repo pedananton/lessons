@@ -1,5 +1,10 @@
 import { users } from "../../api";
 
+export const SET_DATE = "SET_DATE";
+export function setDate(data) {
+  return { type: SET_DATE, payload: data };
+}
+
 export const SET_USERS = "SET_USERS";
 export const getUsers = () => (dispatch) => {
   users.get().then((resp) =>
